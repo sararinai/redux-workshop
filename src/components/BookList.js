@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import fetchBooks from '../actions/index';
+import {fetchBooks} from '../actions/index';
 
 class BookList extends Component {
 
@@ -9,20 +9,18 @@ class BookList extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.fetchBooks();
+    }
+
     render(){
-
-        let books = [];
-
-        if (this.props.books) {
-            console.log(this.props.books);
-            books = this.props.books.map((book) => {
-                return <div>{book.title}</div>
-            });
-        }
+        let books = this.props.books.map((book) => {
+            return <div key={book.id} >{book.title} - {book.author}</div>
+        });
 
         return (
             <div>
-                <div onClick={()=>{this.props.fetchBooks()}}>Book List</div>
+                <div>Book List</div>
                 {books}
             </div>
         )
