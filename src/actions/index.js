@@ -7,27 +7,27 @@ export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const GOOGLE_API_SEARCH = 'GOOGLE_API_SEARCH';
 
 export function fetchBooks() {
-    let books = axios.get(`${API_URI}books`);
-    return {
-        type: FETCH_BOOKS,
-        payload: books
-    }
+  let books = axios.get(`${API_URI}books`);
+  return {
+    type: FETCH_BOOKS,
+    payload: books
+  }
 }
 
-export function googleAPISearch(query){ //+subject:Computers &orderBy=newest
-    let books = axios.get(`${GOOGLE_API}?key=${API_KEY}&q="${query}"+subject:Computers&maxResults=40`);
+export function googleAPISearch(query) { //+subject:Computers &orderBy=newest
+  let books = axios.get(`${GOOGLE_API}?key=${API_KEY}&q="${query}"+subject:Computers&maxResults=40`);
 
-    return {
-        type: GOOGLE_API_SEARCH,
-        payload:books
-    }
+  return {
+    type: GOOGLE_API_SEARCH,
+    payload: books
+  }
 }
 
-export function googleAPIGetBook(idGoogle){ //+subject:Computers &orderBy=newest
-    let books = axios.get(`${GOOGLE_API}/${idGoogle}?key=${API_KEY}`);
+export function googleAPIGetBook(idGoogle) { //+subject:Computers &orderBy=newest
+  let books = axios.get(`${GOOGLE_API}/${idGoogle}?key=${API_KEY}`);
 
-    return {
-        type: GOOGLE_API_SEARCH,
-        payload:books
-    }
+  return {
+    type: GOOGLE_API_SEARCH,
+    payload: books
+  }
 }
