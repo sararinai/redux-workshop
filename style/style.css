@@ -1,3 +1,25 @@
 .jumbotron {
     padding: 2rem 2rem;
 }
+
+* {
+    font-family: 'Open Sans', sans-serif;';
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight:600;
+}
+
+.label {
+    padding: 4px;
+    display: block;
+    float: left;
+    clear: both;
+    margin: 1px;
+}
+
+
+
+.media-object {
+    margin-bottom: 4px;
+}

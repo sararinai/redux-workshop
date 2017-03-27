@@ -9,10 +9,12 @@ class GoogleAPISearch extends Component {
     super(props);
 
     this.state = {
-      term: ''
+      term: '',
+      searchType: 'std'
     };
 
     this.changeFilterText = this.changeFilterText.bind(this);
+    this.handleSelectorChange = this.handleSelectorChange.bind(this);
     this.doSearch = this.doSearch.bind(this);
   }
 
@@ -22,25 +24,40 @@ class GoogleAPISearch extends Component {
     })
   }
 
+  handleSelectorChange(event) {
+    this.setState({
+      searchType: event.target.value
+    })
+  }
+
   doSearch(event) {
     event.preventDefault();
-    this.props.googleAPISearch(this.state.term);
+    this.props.googleAPISearch(this.state.term, this.state.searchType);
   }
 
   render() {
     return (
-      <form onSubmit={this.doSearch}>
-        <div className="input-group">
+      <form onSubmit={this.doSearch} className="row">
+        <div className="input-group col-md-2" style={{display: 'block', float: 'left'}}>
+          <select className="form-control" onChange={this.handleSelectorChange}>
+            <option value={'std'}>Computers</option>
+            <option value={'author'}>Author</option>
+            <option value={'publisher'}>Publisher</option>
+            <option value={'title'} disabled>Title</option>
+            <option value={'isbn'} disabled>ISBN</option>
+          </select>
+        </div>
+        <div className="input-group col-md-8" style={{display: 'block', float: 'left'}}>
           <input type="text"
                  className="form-control"
                  value={this.state.term}
                  onChange={this.changeFilterText}
                  placeholder="Clean code"/>
-          <span className="input-group-btn">
-            <input className="btn btn-primary"
+        </div>
+        <div className="input-group col-md-2">
+            <input className="btn btn-primary form-control"
                     type="submit"
                     value="Search on Google" />
-          </span>
         </div>
       </form>
     );

@@ -5,6 +5,7 @@ const GOOGLE_API = `https://www.googleapis.com/books/v1/volumes`;
 
 export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const GOOGLE_API_SEARCH = 'GOOGLE_API_SEARCH';
+export const CHANGE_VIEW = 'CHANGE_VIEW';
 
 export function fetchBooks() {
   let books = axios.get(`${API_URI}books`);
@@ -14,8 +15,11 @@ export function fetchBooks() {
   }
 }
 
-export function googleAPISearch(query) { //+subject:Computers &orderBy=newest
-  let books = axios.get(`${GOOGLE_API}?key=${API_KEY}&q="${query}"+subject:Computers&maxResults=40`);
+export function googleAPISearch(query, type) { //+subject:Computers &orderBy=newest
+  query = transformToSpecificQuery(query, type);
+
+  let request = `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&maxResults=40`,
+      books = axios.get(request);
 
   return {
     type: GOOGLE_API_SEARCH,
@@ -23,11 +27,42 @@ export function googleAPISearch(query) { //+subject:Computers &orderBy=newest
   }
 }
 
+function transformToSpecificQuery(query, type){
+  query = `"${query}"`;
+  /*
+   intitle: Returns results where the text following this keyword is found in the title.
+   inauthor: Returns results where the text following this keyword is found in the author.
+   inpublisher: Returns results where the text following this keyword is found in the publisher.
+   subject: Returns results where the text following this keyword is listed in the category list of the volume.
+   isbn: Returns results where the text following this keyword is the ISBN number.
+   lccn: Returns results where the text following this keyword is the Library of Congress Control Number.
+   oclc: Returns results where the text following this keyword is the Online Computer Library Center number.
+   */
+  //TODO implement (n) author search..
+  switch (type) {
+    case 'author':
+      return `inauthor:${query}`;
+    case 'publisher':
+      return `inpublisher:${query}`;
+    default:
+      return query;
+  }
+}
+
+
 export function googleAPIGetBook(idGoogle) { //+subject:Computers &orderBy=newest
   let books = axios.get(`${GOOGLE_API}/${idGoogle}?key=${API_KEY}`);
 
   return {
     type: GOOGLE_API_SEARCH,
     payload: books
+  }
+}
+
+export function changeView(activeView) {
+  console.log(activeView);
+  return  {
+    type: CHANGE_VIEW,
+    payload: activeView
   }
 }
