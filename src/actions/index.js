@@ -21,6 +21,7 @@ export function googleAPISearch(query, type) { //+subject:Computers &orderBy=new
   let request = `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&maxResults=40`,
       books = axios.get(request);
 
+  console.log(request);
   return {
     type: GOOGLE_API_SEARCH,
     payload: books
@@ -44,11 +45,12 @@ function transformToSpecificQuery(query, type){
       return `inauthor:${query}`;
     case 'publisher':
       return `inpublisher:${query}`;
+    case 'title':
+      return `intitle:${query}`;
     default:
       return query;
   }
 }
-
 
 export function googleAPIGetBook(idGoogle) { //+subject:Computers &orderBy=newest
   let books = axios.get(`${GOOGLE_API}/${idGoogle}?key=${API_KEY}`);
@@ -60,7 +62,6 @@ export function googleAPIGetBook(idGoogle) { //+subject:Computers &orderBy=newes
 }
 
 export function changeView(activeView) {
-  console.log(activeView);
   return  {
     type: CHANGE_VIEW,
     payload: activeView

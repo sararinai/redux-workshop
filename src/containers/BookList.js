@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchBooks} from '../actions/index';
 import Book from '../components/book/Book';
+import Pagination from '../components/Pagination';
 
 class BookList extends Component {
 
@@ -29,9 +30,15 @@ class BookList extends Component {
         });
 
         return (
-            <div>
-                {books}
+          <div className="row">
+            <div className="col-md-12">
+              {books}
             </div>
+            <div className="col-md-12 text-center">
+              <Pagination />
+            </div>
+          </div>
+
         )
     }
 }

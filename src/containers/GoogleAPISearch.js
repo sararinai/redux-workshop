@@ -10,7 +10,7 @@ class GoogleAPISearch extends Component {
 
     this.state = {
       term: '',
-      searchType: 'std'
+      searchType: 'title'
     };
 
     this.changeFilterText = this.changeFilterText.bind(this);
@@ -40,10 +40,10 @@ class GoogleAPISearch extends Component {
       <form onSubmit={this.doSearch} className="row">
         <div className="input-group col-md-2" style={{display: 'block', float: 'left'}}>
           <select className="form-control" onChange={this.handleSelectorChange}>
-            <option value={'std'}>Computers</option>
+            <option value={'title'}>Title</option>
             <option value={'author'}>Author</option>
             <option value={'publisher'}>Publisher</option>
-            <option value={'title'} disabled>Title</option>
+            <option value={'byquery'}>ByQuery</option>
             <option value={'isbn'} disabled>ISBN</option>
           </select>
         </div>
