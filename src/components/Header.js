@@ -6,7 +6,7 @@ const Header = () => {
 
   //#de0000
   return (
-    <div style={{backgroundColor:'darkslateblue'}} className="row">
+    <div className="row header">
       <div className="clearfix">
         <AtrapaloLogo />
         <div className="col-md-8" style={{margin:'0 auto'}}>

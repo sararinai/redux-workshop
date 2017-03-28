@@ -29,26 +29,26 @@ export function googleAPISearch(query, type) { //+subject:Computers &orderBy=new
 }
 
 function transformToSpecificQuery(query, type){
-  query = `"${query}"`;
+  let limitedQuery = `"${query.trim()}"`;
   /*
    intitle: Returns results where the text following this keyword is found in the title.
    inauthor: Returns results where the text following this keyword is found in the author.
    inpublisher: Returns results where the text following this keyword is found in the publisher.
    subject: Returns results where the text following this keyword is listed in the category list of the volume.
    isbn: Returns results where the text following this keyword is the ISBN number.
-   lccn: Returns results where the text following this keyword is the Library of Congress Control Number.
-   oclc: Returns results where the text following this keyword is the Online Computer Library Center number.
    */
   //TODO implement (n) author search..
   switch (type) {
     case 'author':
-      return `inauthor:${query}`;
+      return `inauthor:${limitedQuery}`;
     case 'publisher':
-      return `inpublisher:${query}`;
+      return `inpublisher:${limitedQuery}`;
     case 'title':
-      return `intitle:${query}`;
+      return `intitle:${limitedQuery}`;
+    case 'isbn':
+      return `isbn:${query}`;
     default:
-      return query;
+      return limitedQuery;
   }
 }
 

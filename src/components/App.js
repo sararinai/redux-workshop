@@ -10,17 +10,17 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <BreadCrums items={['Home', 'Search']} active={'Search'}/>
-        <div style={{padding: 10}} className="row">
-          <div className="col-md-2">
+        {/*<BreadCrums items={['Home', 'Search']} active={'Search'}/>*/}
+        <div className="row">
+          <div className="col-md-2 col-sm-2">
             <ViewSelector />
           </div>
-          <div className="col-md-10">
+          <div className="col-md-10 col-sm-10">
             <GoogleAPISearch />
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-12 col-sm-12">
             <BookList />
           </div>
         </div>

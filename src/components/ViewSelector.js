@@ -9,10 +9,17 @@ class ViewSelector extends Component {
     super(props);
 
     this.changeView = this.changeView.bind(this);
+    this.getActiveClass = this.getActiveClass.bind(this);
   }
 
   changeView(view){
     this.props.changeView(view);
+  }
+  
+  getActiveClass(view) {
+    if (this.props.activeView == view){
+      return 'active';
+    }
   }
 
   render() {
@@ -25,12 +32,12 @@ class ViewSelector extends Component {
           <span className="glyphicon glyphicon-th-large" />
         </button>
         <button type="button"
-                className="btn btn-default"
+                className={'btn btn-default '.concat(this.getActiveClass('3books-view'))}
                 onClick={() => this.changeView('3books-view')}>
           <span className="glyphicon glyphicon-th" />
         </button>
         <button type="button"
-                className="btn btn-default"
+                className={'btn btn-default '.concat(this.getActiveClass('list-view'))}
                 onClick={() => this.changeView('list-view')}>
           <span className="glyphicon glyphicon-th-list" />
         </button>

@@ -1,9 +1,23 @@
-.jumbotron {
-    padding: 2rem 2rem;
+.header  {
+    background-color: darkslateblue;
+    margin-bottom: 15px;
 }
 
 * {
     font-family: 'Open Sans', sans-serif;';
+}
+
+.search-form div{
+    padding:0;
+    margin:0;
+}
+
+.search-form input , .search-form select{
+    border-radius:0;
+}
+
+.breadcrumb {
+    margin-bottom: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,8 +31,6 @@ h1, h2, h3, h4, h5, h6 {
     clear: both;
     margin: 1px;
 }
-
-
 
 .media-object {
     margin-bottom: 4px;

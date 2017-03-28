@@ -37,24 +37,24 @@ class GoogleAPISearch extends Component {
 
   render() {
     return (
-      <form onSubmit={this.doSearch} className="row">
-        <div className="input-group col-md-2" style={{display: 'block', float: 'left'}}>
+      <form onSubmit={this.doSearch} className="row search-form">
+        <div className="col-md-2 col-sm-2" >
           <select className="form-control" onChange={this.handleSelectorChange}>
             <option value={'title'}>Title</option>
             <option value={'author'}>Author</option>
             <option value={'publisher'}>Publisher</option>
             <option value={'byquery'}>ByQuery</option>
-            <option value={'isbn'} disabled>ISBN</option>
+            <option value={'isbn'}>ISBN</option>
           </select>
         </div>
-        <div className="input-group col-md-8" style={{display: 'block', float: 'left'}}>
+        <div className="col-md-8 col-sm-8" >
           <input type="text"
                  className="form-control"
                  value={this.state.term}
                  onChange={this.changeFilterText}
                  placeholder="Clean code"/>
         </div>
-        <div className="input-group col-md-2">
+        <div className="col-md-2 col-sm-2">
             <input className="btn btn-primary form-control"
                     type="submit"
                     value="Search on Google" />
