@@ -55,7 +55,7 @@ class GoogleAPISearch extends Component {
                  placeholder="Clean code"/>
         </div>
         <div className="col-md-2 col-sm-2">
-            <input className="btn btn-primary form-control"
+            <input className="btn form-control"
                     type="submit"
                     value="Search on Google" />
         </div>
