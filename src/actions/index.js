@@ -6,6 +6,7 @@ const GOOGLE_API = `https://www.googleapis.com/books/v1/volumes`;
 export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const GOOGLE_API_SEARCH = 'GOOGLE_API_SEARCH';
 export const CHANGE_VIEW = 'CHANGE_VIEW';
+export const CHANGE_PAGE = 'CHANGE_PAGE';
 
 export function fetchBooks() {
   let books = axios.get(`${API_URI}books`);
@@ -15,10 +16,12 @@ export function fetchBooks() {
   }
 }
 
+
+
 export function googleAPISearch(query, type) { //+subject:Computers &orderBy=newest
   query = transformToSpecificQuery(query, type);
 
-  let request = `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&maxResults=40`,
+  let request = `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&maxResults=10`,
       books = axios.get(request);
 
   console.log(request);
@@ -65,5 +68,13 @@ export function changeView(activeView) {
   return  {
     type: CHANGE_VIEW,
     payload: activeView
+  }
+}
+
+export function changePage(newPage) {
+  console.log('CHANGE PAGE TO -> ' + newPage);
+  return {
+    type: CHANGE_PAGE,
+    payload: newPage
   }
 }

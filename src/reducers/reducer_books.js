@@ -1,4 +1,4 @@
-import {GOOGLE_API_SEARCH, FETCH_BOOKS} from '../actions/index';
+import {GOOGLE_API_SEARCH, FETCH_BOOKS, CHANGE_PAGE} from '../actions/index';
 
 const initialState = {
   "kind": "books#volumes",
@@ -3692,6 +3692,9 @@ export default function (state = initialState.items, action) {
       if (action.payload.data.totalItems > 0) {
         return action.payload.data.items;
       }
+      return state;
+    case CHANGE_PAGE:
+      //TODO change page...
       return state;
     default:
       return state;
