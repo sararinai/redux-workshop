@@ -27,7 +27,7 @@ class ViewSelector extends Component {
       <div className="btn-group" role="group">
         <button type="button"
                 disabled
-                className="btn btn-default"
+                className={'btn btn-default '.concat(this.getActiveClass('grid-view'))}
                 onClick={() => this.changeView('grid-view')}>
           <span className="glyphicon glyphicon-th-large" />
         </button>

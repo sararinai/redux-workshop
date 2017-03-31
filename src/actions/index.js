@@ -21,7 +21,7 @@ export function fetchBooks() {
 export function googleAPISearch(query, type) { //+subject:Computers &orderBy=newest
   query = transformToSpecificQuery(query, type);
 
-  let request = `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&maxResults=10`,
+  let request = `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&maxResults=20`,
       books = axios.get(request);
 
   console.log(request);

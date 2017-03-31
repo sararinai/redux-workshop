@@ -19,8 +19,8 @@ class Pagination extends Component {
 
   render() {
 
-    let activePage = 1,
-        totalPages = 5;
+    let activePage = 6,
+        totalPages = 6;
 
     let pages = [...Array(totalPages)].map((page, index) => {
       return (
