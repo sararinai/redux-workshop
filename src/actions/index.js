@@ -1,12 +1,9 @@
-import axios from 'axios';
+import {googleAPISearchGenerator} from './googleApiSearch';
 const API_URI = 'http://127.0.0.1:3000/api/0.1/';
-const API_KEY = 'AIzaSyAk-aZkG4d0yS_TRTh2NyAtEfhtAfQdE5c';
-const GOOGLE_API = `https://www.googleapis.com/books/v1/volumes`;
 
 export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const GOOGLE_API_SEARCH = 'GOOGLE_API_SEARCH';
 export const CHANGE_VIEW = 'CHANGE_VIEW';
-export const CHANGE_PAGE = 'CHANGE_PAGE';
 
 export function fetchBooks() {
   let books = axios.get(`${API_URI}books`);
@@ -16,65 +13,18 @@ export function fetchBooks() {
   }
 }
 
-
-
-export function googleAPISearch(query, type) { //+subject:Computers &orderBy=newest
-  query = transformToSpecificQuery(query, type);
-
-  let request = `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&maxResults=20`,
-      books = axios.get(request);
-
-  console.log(request);
-  return {
-    type: GOOGLE_API_SEARCH,
-    payload: books
-  }
-}
-
-function transformToSpecificQuery(query, type){
-  let limitedQuery = `"${query.trim()}"`;
-  /*
-   intitle: Returns results where the text following this keyword is found in the title.
-   inauthor: Returns results where the text following this keyword is found in the author.
-   inpublisher: Returns results where the text following this keyword is found in the publisher.
-   subject: Returns results where the text following this keyword is listed in the category list of the volume.
-   isbn: Returns results where the text following this keyword is the ISBN number.
-   */
-  //TODO implement (n) author search..
-  switch (type) {
-    case 'author':
-      return `inauthor:${limitedQuery}`;
-    case 'publisher':
-      return `inpublisher:${limitedQuery}`;
-    case 'title':
-      return `intitle:${limitedQuery}`;
-    case 'isbn':
-      return `isbn:${query}`;
-    default:
-      return limitedQuery;
-  }
-}
-
-export function googleAPIGetBook(idGoogle) { //+subject:Computers &orderBy=newest
-  let books = axios.get(`${GOOGLE_API}/${idGoogle}?key=${API_KEY}`);
+export function googleAPISearch(query, type, maxResults = 20, startIndex = 0) {
+  let promiseRequest = googleAPISearchGenerator(query, type, maxResults, startIndex);
 
   return {
     type: GOOGLE_API_SEARCH,
-    payload: books
+    payload: promiseRequest
   }
 }
 
 export function changeView(activeView) {
-  return  {
+  return {
     type: CHANGE_VIEW,
     payload: activeView
-  }
-}
-
-export function changePage(newPage) {
-  console.log('CHANGE PAGE TO -> ' + newPage);
-  return {
-    type: CHANGE_PAGE,
-    payload: newPage
   }
 }

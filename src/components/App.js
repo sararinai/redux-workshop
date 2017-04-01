@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import BookList from '../containers/BookList';
 import GoogleAPISearch from '../containers/GoogleAPISearch';
 import Header from './Header';

@@ -10,11 +10,13 @@ class GoogleAPISearch extends Component {
 
     this.state = {
       term: '',
-      searchType: 'title'
+      searchType: 'title',
+      maxResults: 20
     };
 
     this.changeFilterText = this.changeFilterText.bind(this);
     this.handleSelectorChange = this.handleSelectorChange.bind(this);
+    this.handlePageSelectorChange = this.handlePageSelectorChange.bind(this);
     this.doSearch = this.doSearch.bind(this);
   }
 
@@ -30,16 +32,27 @@ class GoogleAPISearch extends Component {
     })
   }
 
+  handlePageSelectorChange(event) {
+    this.setState({
+      maxResults: event.target.value
+    })
+  }
+
   doSearch(event) {
     event.preventDefault();
-    this.props.googleAPISearch(this.state.term, this.state.searchType);
+    this.props.googleAPISearch(
+      this.state.term,
+      this.state.searchType,
+      this.state.maxResults
+    );
   }
 
   render() {
     return (
       <form onSubmit={this.doSearch} className="row search-form">
-        <div className="col-md-2 col-sm-2" >
-          <select className="form-control" onChange={this.handleSelectorChange}>
+        <div className="col-md-2 col-sm-2">
+          <select className="form-control"
+                  onChange={this.handleSelectorChange}>
             <option value={'title'}>Title</option>
             <option value={'author'}>Author</option>
             <option value={'publisher'}>Publisher</option>
@@ -47,7 +60,14 @@ class GoogleAPISearch extends Component {
             <option value={'isbn'}>ISBN</option>
           </select>
         </div>
-        <div className="col-md-8 col-sm-8" >
+        <div className="col-md-1 col-sm-1">
+          <select className="form-control"
+                  onChange={this.handlePageSelectorChange}>
+            <option value={20}>20</option>
+            <option value={40}>40</option>
+          </select>
+        </div>
+        <div className="col-md-7 col-sm-7">
           <input type="text"
                  className="form-control"
                  value={this.state.term}
@@ -55,9 +75,9 @@ class GoogleAPISearch extends Component {
                  placeholder="Clean code"/>
         </div>
         <div className="col-md-2 col-sm-2">
-            <input className="btn form-control"
-                    type="submit"
-                    value="Search on Google" />
+          <input className="btn form-control"
+                 type="submit"
+                 value="Search on Google"/>
         </div>
       </form>
     );

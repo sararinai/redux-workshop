@@ -2,9 +2,9 @@ import React from 'react';
 
 const TotalResults = (props) => {
     return (
-        <div className="panel panel-default">
-            <div className="panel-body">
-                Total results: {props.totalItems}
+        <div className="panel panel-primary">
+            <div className="panel-header">
+              <span className="label label-primary">{props.totalItems}</span> Total results
             </div>
         </div>
     )

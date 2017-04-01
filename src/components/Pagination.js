@@ -13,31 +13,31 @@ class Pagination extends Component {
     this.changeViewToPage = this.changeViewToPage.bind(this);
   }
 
-  changeViewToPage(page){
+  changeViewToPage(page) {
     this.props.changePage(page);
   }
 
   render() {
 
     let activePage = 6,
-        totalPages = 6;
+      totalPages = 6;
 
     let pages = [...Array(totalPages)].map((page, index) => {
       return (
         <li key={index} className={activePage == (index + 1) ? 'active' : ''}>
-          <a href="#" onClick={() => this.changeViewToPage(index +1)}>{index + 1}</a>
+          <a href="#" onClick={() => this.changeViewToPage(index + 1)}>{index + 1}</a>
         </li>
       )
     });
 
     let previousPageSelector = activePage !== 1 && (<li>
-      <a href="#" aria-label="Previous" onClick={() => this.changeViewToPage(activePage - 1)}>
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>);
+        <a href="#" aria-label="Previous" onClick={() => this.changeViewToPage(activePage - 1)}>
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>);
 
     let nextPageSelector = activePage < totalPages && (<li>
-        <a href="#" aria-label="Next" onClick={() =>this.changeViewToPage(activePage + 1)}>
+        <a href="#" aria-label="Next" onClick={() => this.changeViewToPage(activePage + 1)}>
           <span aria-hidden="true">&raquo;</span>
         </a>
       </li>);
