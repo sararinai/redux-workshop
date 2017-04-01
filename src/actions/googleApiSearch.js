@@ -3,10 +3,7 @@ const API_KEY = 'AIzaSyAk-aZkG4d0yS_TRTh2NyAtEfhtAfQdE5c';
 const GOOGLE_API = `https://www.googleapis.com/books/v1/volumes`;
 
 export function googleAPISearchGenerator(query, type, maxResults, startIndex) { //+subject:Computers &orderBy=newest
-  query = transformToSpecificQuery(query, type);
-
-  let request = `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&startIndex=${startIndex}&maxResults=${maxResults}`;
-  return axios.get(request); //Promise
+  return axios.get(createGoogleRequest(query, type, maxResults, startIndex)); //Promise
 }
 
 export function googleAPIGetBook(idGoogle) { //+subject:Computers &orderBy=newest
@@ -18,30 +15,35 @@ export function googleAPIGetBook(idGoogle) { //+subject:Computers &orderBy=newes
   }
 }
 
+export function createGoogleRequest(query, type, maxResults, startIndex) {
+  query = transformToSpecificQuery(query, type);
+  return `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&startIndex=${startIndex}&maxResults=${maxResults}`;
+}
+
 function transformToSpecificQuery(query, type) {
-  let limitedQuery = `"${query.trim()}"`;
-  /*
-   intitle: Returns results where the text following this keyword is found in the title.
-   inauthor: Returns results where the text following this keyword is found in the author.
-   inpublisher: Returns results where the text following this keyword is found in the publisher.
-   subject: Returns results where the text following this keyword is listed in the category list of the volume.
-   isbn: Returns results where the text following this keyword is the ISBN number.
-   */
-  //TODO implement (n) author search..
+  query = query.trim();
+
   switch (type) {
     case 'author':
-      return `inauthor:${limitedQuery}`;
+      return createAuthorRequestByQuery(query);
     case 'publisher':
-      return `inpublisher:${limitedQuery}`;
+      return `inpublisher:"${query}"`;
     case 'title':
-      return `intitle:${limitedQuery}`;
+      return `intitle:"${query}"`;
     case 'isbn':
       return `isbn:${query}`;
     default:
-      return limitedQuery;
+      return `"${query}"`;
   }
 }
 
+function createAuthorRequestByQuery(query) {
+  let authors = query.split(/;/g).map((author) => {
+    return `inauthor:"${author}"`;
+  });
+
+  return authors.join('+');
+}
 
 /*
 
