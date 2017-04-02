@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {googleAPISearch} from '../actions/index';
+import {googleAPISearch, newSearch} from '../actions/index';
 
 class GoogleAPISearch extends Component {
 
@@ -29,8 +29,9 @@ class GoogleAPISearch extends Component {
 
   handleTypeSelectorChange(event) {
     let placeHolder = '';
+    let value = event.target.value;
 
-    switch (event.target.value) {
+    switch (value) {
       case 'title' :
         placeHolder = 'Clean Code';
         break;
@@ -40,10 +41,13 @@ class GoogleAPISearch extends Component {
       case 'publisher' :
         placeHolder = "O'Reilly Media, Inc";
         break;
+      case 'isbn':
+        placeHolder = '9781785288319';
+        break;
     }
 
     this.setState({
-      type: event.target.value,
+      type: value,
       placeHolder
     })
   }
@@ -56,6 +60,12 @@ class GoogleAPISearch extends Component {
 
   doSearch(event) {
     event.preventDefault();
+    this.props.newSearch(
+      this.state.query,
+      this.state.type,
+      this.state.maxResults
+    );
+
     this.props.googleAPISearch(
       this.state.query,
       this.state.type,
@@ -91,17 +101,25 @@ class GoogleAPISearch extends Component {
                  placeholder={this.state.placeHolder}/>
         </div>
         <div className="col-md-2 col-sm-2">
-          <input className="btn form-control"
-                 type="submit"
-                 value={'Search on Google'}/>
+          <button className="btn form-control"
+                 type="submit">
+            {this.props.searchStatus != 'SEARCHING' ? 'Search on Google' :
+              (<i className="fa fa-spinner fa-spin"></i>)}
+          </button>
         </div>
       </form>
     );
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({googleAPISearch}, dispatch);
+function mapStatusToProps(state) {
+  return {
+    searchStatus: state.search.status
+  }
 }
 
-export default connect(null, mapDispatchToProps)(GoogleAPISearch);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({googleAPISearch, newSearch}, dispatch);
+}
+
+export default connect(mapStatusToProps, mapDispatchToProps)(GoogleAPISearch);

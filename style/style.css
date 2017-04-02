@@ -16,10 +16,11 @@
     border-radius:0;
 }
 
-.search-form input[type="submit"] {
+.search-form button[type="submit"] {
     background-color: #de0000;
     border:0;
     color:white;
+    border-radius: 0;
 }
 
 
