@@ -24,10 +24,10 @@ export function googleAPISearch(query, type, maxResults = 20, startIndex = 0) {
 }
 
 export function changeView(activeView) {
-  return {
+  return [{
     type: CHANGE_VIEW,
     payload: activeView
-  }
+  }]
 }
 
 export function newSearch(query, type, maxResults, startIndex = 0) {
