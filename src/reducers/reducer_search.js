@@ -21,6 +21,8 @@ export default (state = initialState, action) => {
     case NEW_SEARCH:
       return {...state, status: status.SEARCHING, query: action.payload};
     case GOOGLE_API_SEARCH:
+      //TODO avoid two actions...
+      //Only change status.
       return {...state, status: status.DONE};
     default:
       return state;
