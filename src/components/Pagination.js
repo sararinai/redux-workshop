@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {changePage} from '../actions/index';
+import {googleAPISearch} from '../actions/index';
 
 /**
  * Created by rafael on 27/03/17.
@@ -9,12 +9,6 @@ import {changePage} from '../actions/index';
 class Pagination extends Component {
   constructor(props) {
     super(props);
-
-    this.changeViewToPage = this.changeViewToPage.bind(this);
-  }
-
-  changeViewToPage(page) {
-    this.props.changePage(page);
   }
 
   render() {
@@ -55,7 +49,7 @@ class Pagination extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({changePage}, dispatch);
+  return bindActionCreators({googleAPISearch}, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(Pagination);

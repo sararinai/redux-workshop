@@ -9,30 +9,46 @@ class GoogleAPISearch extends Component {
     super(props);
 
     this.state = {
-      term: '',
-      searchType: 'title',
-      maxResults: 20
+      query: '',
+      type: 'title',
+      maxResults: 20,
+      placeHolder: 'Clean Code'
     };
 
-    this.changeFilterText = this.changeFilterText.bind(this);
-    this.handleSelectorChange = this.handleSelectorChange.bind(this);
-    this.handlePageSelectorChange = this.handlePageSelectorChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleTypeSelectorChange = this.handleTypeSelectorChange.bind(this);
+    this.handleMaxResultsChange = this.handleMaxResultsChange.bind(this);
     this.doSearch = this.doSearch.bind(this);
   }
 
-  changeFilterText(event) {
+  handleInputChange(event) {
     this.setState({
-      term: event.target.value
+      query: event.target.value
     })
   }
 
-  handleSelectorChange(event) {
+  handleTypeSelectorChange(event) {
+    let placeHolder = '';
+
+    switch (event.target.value) {
+      case 'title' :
+        placeHolder = 'Clean Code';
+        break;
+      case 'author':
+        placeHolder = 'Robert C. Martin';
+        break;
+      case 'publisher' :
+        placeHolder = "O'Reilly Media, Inc";
+        break;
+    }
+
     this.setState({
-      searchType: event.target.value
+      type: event.target.value,
+      placeHolder
     })
   }
 
-  handlePageSelectorChange(event) {
+  handleMaxResultsChange(event) {
     this.setState({
       maxResults: event.target.value
     })
@@ -41,8 +57,8 @@ class GoogleAPISearch extends Component {
   doSearch(event) {
     event.preventDefault();
     this.props.googleAPISearch(
-      this.state.term,
-      this.state.searchType,
+      this.state.query,
+      this.state.type,
       this.state.maxResults
     );
   }
@@ -52,7 +68,7 @@ class GoogleAPISearch extends Component {
       <form onSubmit={this.doSearch} className="row search-form">
         <div className="col-md-2 col-sm-2">
           <select className="form-control"
-                  onChange={this.handleSelectorChange}>
+                  onChange={this.handleTypeSelectorChange}>
             <option value={'title'}>Title</option>
             <option value={'author'}>Author</option>
             <option value={'publisher'}>Publisher</option>
@@ -62,7 +78,7 @@ class GoogleAPISearch extends Component {
         </div>
         <div className="col-md-1 col-sm-1">
           <select className="form-control"
-                  onChange={this.handlePageSelectorChange}>
+                  onChange={this.handleMaxResultsChange}>
             <option value={20}>20</option>
             <option value={40}>40</option>
           </select>
@@ -70,14 +86,14 @@ class GoogleAPISearch extends Component {
         <div className="col-md-7 col-sm-7">
           <input type="text"
                  className="form-control"
-                 value={this.state.term}
-                 onChange={this.changeFilterText}
-                 placeholder="Clean code"/>
+                 value={this.state.query}
+                 onChange={this.handleInputChange}
+                 placeholder={this.state.placeHolder}/>
         </div>
         <div className="col-md-2 col-sm-2">
           <input className="btn form-control"
                  type="submit"
-                 value="Search on Google"/>
+                 value={'Search on Google'}/>
         </div>
       </form>
     );
