@@ -15,6 +15,7 @@ export function fetchBooks() {
 }
 
 export function googleAPISearch(query, type, maxResults = 20, startIndex = 0) {
+  console.log(query, type, maxResults, startIndex);
   let promiseRequest = googleAPISearchGenerator(query, type, maxResults, startIndex);
 
   return {

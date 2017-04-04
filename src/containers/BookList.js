@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {fetchBooks} from '../actions/index';
 import Book from '../components/book/Book';
 import BookContainer from '../components/book/BookContainer';
-import Pagination from '../components/Pagination';
+import Pagination from './Pagination';
 import TotalResults from '../components/TotalResults';
 
 class BookList extends Component {
@@ -40,10 +39,10 @@ class BookList extends Component {
         <div className="col-md-2">
           <TotalResults totalItems={this.props.totalItems}/>
         </div>
+        {pagination}
         <div className="col-md-12">
           {books}
         </div>
-        {pagination}
       </div>
 
     )
@@ -58,8 +57,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchBooks}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookList);
+export default connect(mapStateToProps, {fetchBooks})(BookList);

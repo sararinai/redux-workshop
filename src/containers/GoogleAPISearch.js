@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {googleAPISearch, newSearch} from '../actions/index';
 
 class GoogleAPISearch extends Component {
@@ -118,8 +117,4 @@ function mapStatusToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({googleAPISearch, newSearch}, dispatch);
-}
-
-export default connect(mapStatusToProps, mapDispatchToProps)(GoogleAPISearch);
+export default connect(mapStatusToProps, {googleAPISearch, newSearch})(GoogleAPISearch);
