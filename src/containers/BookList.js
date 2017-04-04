@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchBooks} from '../actions/index';
 import Book from '../components/book/Book';
 import BookContainer from '../components/book/BookContainer';
 import Pagination from './Pagination';
@@ -10,10 +9,6 @@ class BookList extends Component {
 
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
-    //this.props.fetchBooks();
   }
 
   render() {
@@ -57,4 +52,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {fetchBooks})(BookList);
+export default connect(mapStateToProps)(BookList);
