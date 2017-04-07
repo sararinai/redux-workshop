@@ -15,7 +15,7 @@ describe('actions', () => {
   it('should create an action to create new search', () => {
 
     const expectedAction = {
-      type: actions.NEW_SEARCH,
+      type: actions.SEARCH_REQUEST,
       payload: {
         query: 'docker',
         type: 'title',
@@ -31,7 +31,7 @@ describe('actions', () => {
   it('should create an action to create default new search', () => {
 
     const expectedAction = {
-      type: actions.NEW_SEARCH,
+      type: actions.SEARCH_REQUEST,
       payload: {
         query: 'docker',
         type: 'title',

@@ -1,4 +1,4 @@
-import {NEW_SEARCH, GOOGLE_API_SEARCH} from '../actions/index';
+import {SEARCH_REQUEST, SEARCH_RESPONSE} from '../actions/index';
 
 const status = {
   NONE: 'NONE',
@@ -18,9 +18,9 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case NEW_SEARCH:
+    case SEARCH_REQUEST:
       return {...state, status: status.SEARCHING, query: action.payload};
-    case GOOGLE_API_SEARCH:
+    case SEARCH_RESPONSE:
       //TODO avoid two actions...
       //Only change status.
       return {...state, status: status.DONE};

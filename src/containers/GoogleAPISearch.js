@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {googleAPISearch, newSearch} from '../actions/index';
+import {newSearch} from '../actions/index';
 
 class GoogleAPISearch extends Component {
 
@@ -64,12 +64,6 @@ class GoogleAPISearch extends Component {
       this.state.type,
       this.state.maxResults
     );
-
-    this.props.googleAPISearch(
-      this.state.query,
-      this.state.type,
-      this.state.maxResults
-    );
   }
 
   render() {
@@ -117,4 +111,4 @@ function mapStatusToProps(state) {
   }
 }
 
-export default connect(mapStatusToProps, {googleAPISearch, newSearch})(GoogleAPISearch);
+export default connect(mapStatusToProps, {newSearch})(GoogleAPISearch);

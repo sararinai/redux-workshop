@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {googleAPISearch, newSearch} from '../actions/index';
+import {newSearch} from '../actions/index';
 
 /**
  * Created by rafael on 27/03/17.
@@ -17,7 +17,6 @@ class Pagination extends Component {
     let {query} = this.props.search;
     let startItem = (newPage - 1) * query.maxResults;
     this.props.newSearch(query.query, query.type, query.maxResults, startItem);
-    this.props.googleAPISearch(query.query, query.type, query.maxResults, startItem);
   }
 
   render() {
@@ -70,4 +69,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {googleAPISearch, newSearch})(Pagination);
+export default connect(mapStateToProps, {newSearch})(Pagination);

@@ -1,4 +1,4 @@
-import {GOOGLE_API_SEARCH} from '../actions/index';
+import {SEARCH_RESPONSE} from '../actions/index';
 
 let initialState = {
   "kind": "books#volumes",
@@ -1755,7 +1755,7 @@ initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GOOGLE_API_SEARCH:
+    case SEARCH_RESPONSE:
       if (!action.payload.data.items) {
         action.payload.data.items = [];
       }
