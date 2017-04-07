@@ -21,25 +21,33 @@ export function changeView(activeView) {
   }
 }
 
-export function newSearch(query, type, maxResults, startIndex = 0) {
+export function newSearch(
+    searchTerm,
+    searchType,
+    resultsByPage,
+    startIndex = 0
+) {
 
   return (dispatch) => {
 
       dispatch({
           type: SEARCH_REQUEST,
           payload: {
-              query,
-              type,
-              maxResults,
+              searchTerm,
+              searchType,
+              resultsByPage,
               startIndex
           }
       });
 
-      googleAPISearchRequestGenerator(query, type, maxResults, startIndex)
+      googleAPISearchRequestGenerator(searchTerm, searchType, resultsByPage, startIndex)
       .then((response) => {
           dispatch({
               type: SEARCH_RESPONSE,
-              payload: response
+              payload: {
+                  totalItems: response.data.totalItems,
+                  books: response.data.items
+              }
           })
       });
   };

@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import BookList from '../containers/BookList';
 import GoogleAPISearch from '../containers/GoogleAPISearch';
-import Header from './Header';
-import BreadCrums from './BreadCrums';
-import ViewSelector from './ViewSelector';
+import Header from './common/Header';
+import ViewSelector from '../containers/ViewSelector';
 
 export default class App extends Component {
   render() {
     return (
       <div>
         <Header />
-        {/*<BreadCrums items={['Home', 'Search']} active={'Search'}/>*/}
         <div className="row">
           <div className="col-md-2 col-sm-2">
             <ViewSelector />

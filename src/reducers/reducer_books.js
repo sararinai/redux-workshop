@@ -1,4 +1,4 @@
-import {SEARCH_RESPONSE} from '../actions/index';
+import {SEARCH_RESPONSE, RESET_BOOKS} from '../actions/index';
 
 let initialState = {
   "kind": "books#volumes",
@@ -6,10 +6,7 @@ let initialState = {
   "items": []
 };
 
-initialState = {
-  "kind": "books#volumes",
-  "totalItems": 20,
-  "items": [
+initialState = [
     {
       "kind": "books#volume",
       "id": "bOrnBwAAQBAJ",
@@ -1749,17 +1746,16 @@ initialState = {
         "textSnippet": "Docker-Container bieten eine einfache, schnelle und robuste Möglichkeit, Software zu entwickeln, zu verteilen und laufen zu lassen – besonders in dynamischen und verteilten Umgebungen."
       }
     }
-  ]
-};
+];
 
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case SEARCH_RESPONSE:
-      if (!action.payload.data.items) {
-        action.payload.data.items = [];
+      if (!action.payload.books) {
+        return [];
       }
-      return action.payload.data;
+      return action.payload.books;
     default:
       return state;
   }

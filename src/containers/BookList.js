@@ -50,8 +50,8 @@ class BookList extends Component {
 
 function mapStateToProps(state) {
   return {
-    books: state.books.items,
-    totalItems: state.books.totalItems,
+    books: state.books,
+    totalItems: state.search.totalItems,
     activeView: state.activeView
   }
 }

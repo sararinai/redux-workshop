@@ -1,4 +1,4 @@
-import {SEARCH_REQUEST, SEARCH_RESPONSE} from '../actions/index';
+import {SEARCH_REQUEST, SEARCH_RESPONSE, RESET_BOOKS} from '../actions/index';
 
 const status = {
   NONE: 'NONE',
@@ -7,11 +7,12 @@ const status = {
 };
 
 const initialState = {
+  totalItems: 20,
   status: status.NONE,
   query :{
-    query: '',
-    type: 'title',
-    maxResults: 20,
+    searchTerm: 'docker',
+    searchType: 'title',
+    resultsByPage: 20,
     startIndex: 0
   }
 };
@@ -21,9 +22,7 @@ export default (state = initialState, action) => {
     case SEARCH_REQUEST:
       return {...state, status: status.SEARCHING, query: action.payload};
     case SEARCH_RESPONSE:
-      //TODO avoid two actions...
-      //Only change status.
-      return {...state, status: status.DONE};
+      return {...state, status: status.DONE, totalItems: action.payload.totalItems};
     default:
       return state;
   }
