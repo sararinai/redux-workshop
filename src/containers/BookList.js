@@ -17,7 +17,7 @@ class BookList extends Component {
   }
 
   render() {
-    let activeClass = this.props.activeView == '3books-view'
+    let activeClass = this.props.activeView === '3books-view'
       ? 'col-md-4 col-sm-6' : 'col-md-12 col-sm-12';
 
     let books = this.props.books.map((book, index) => {
@@ -39,10 +39,10 @@ class BookList extends Component {
         <div className="col-md-2">
           <TotalResults totalItems={this.props.totalItems}/>
         </div>
-        {pagination}
         <div className="col-md-12">
           {books}
         </div>
+        {pagination}
       </div>
 
     )

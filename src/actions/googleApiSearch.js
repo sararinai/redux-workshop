@@ -6,15 +6,6 @@ export function googleAPISearchGenerator(query, type, maxResults, startIndex) { 
   return axios.get(createGoogleRequest(query, type, maxResults, startIndex)); //Promise
 }
 
-export function googleAPIGetBook(idGoogle) { //+subject:Computers &orderBy=newest
-  let books = axios.get(`${GOOGLE_API}/${idGoogle}?key=${API_KEY}`);
-
-  return {
-    type: GOOGLE_API_SEARCH,
-    payload: books
-  }
-}
-
 export function createGoogleRequest(query, type, maxResults, startIndex) {
   query = transformToSpecificQuery(query, type);
   return `${GOOGLE_API}?key=${API_KEY}&q=${query}+subject:Computers&startIndex=${startIndex}&maxResults=${maxResults}`;
