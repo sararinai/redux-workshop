@@ -1,4 +1,4 @@
-import {NEW_SEARCH, GOOGLE_API_SEARCH} from '../actions/index';
+import {SEARCH_REQUEST, SEARCH_RESPONSE} from '../actions/index';
 
 const status = {
   NONE: 'NONE',
@@ -7,23 +7,22 @@ const status = {
 };
 
 const initialState = {
+  totalItems: 20,
   status: status.NONE,
   query :{
-    query: '',
-    type: 'title',
-    maxResults: 20,
+    searchTerm: 'docker',
+    searchType: 'title',
+    resultsByPage: 20,
     startIndex: 0
   }
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case NEW_SEARCH:
+    case SEARCH_REQUEST:
       return {...state, status: status.SEARCHING, query: action.payload};
-    case GOOGLE_API_SEARCH:
-      //TODO avoid two actions...
-      //Only change status.
-      return {...state, status: status.DONE};
+    case SEARCH_RESPONSE:
+      return {...state, status: status.DONE, totalItems: action.payload.totalItems};
     default:
       return state;
   }

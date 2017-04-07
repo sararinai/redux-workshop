@@ -2,17 +2,13 @@ import axios from 'axios';
 const API_KEY = 'AIzaSyAk-aZkG4d0yS_TRTh2NyAtEfhtAfQdE5c';
 const GOOGLE_API = `https://www.googleapis.com/books/v1/volumes`;
 
-export function googleAPISearchGenerator(query, type, maxResults, startIndex) { //+subject:Computers &orderBy=newest
-  return axios.get(createGoogleRequest(query, type, maxResults, startIndex)); //Promise
-}
-
-export function googleAPIGetBook(idGoogle) { //+subject:Computers &orderBy=newest
-  let books = axios.get(`${GOOGLE_API}/${idGoogle}?key=${API_KEY}`);
-
-  return {
-    type: GOOGLE_API_SEARCH,
-    payload: books
-  }
+export function googleAPISearchRequestGenerator(
+    searchTerm,
+    searchType,
+    resultsByPage,
+    startIndex
+) { //+subject:Computers &orderBy=newest
+  return axios.get(createGoogleRequest(searchTerm, searchType, resultsByPage, startIndex)); //Promise
 }
 
 export function createGoogleRequest(query, type, maxResults, startIndex) {
