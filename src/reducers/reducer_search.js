@@ -1,4 +1,4 @@
-import {SEARCH_REQUEST, SEARCH_RESPONSE, RESET_BOOKS} from '../actions/index';
+import {SEARCH_REQUEST, SEARCH_RESPONSE} from '../actions/index';
 
 const status = {
   NONE: 'NONE',
