@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {newSearch} from '../actions/index';
+import {changePage} from '../actions/index';
 
 /**
  * Created by rafael on 27/03/17.
@@ -13,17 +13,12 @@ class Pagination extends Component {
   }
 
   changePage(newPage){
-
-    let {query} = this.props.search;
-    let startItem = (newPage - 1) * query.maxResults;
-    this.props.newSearch(query.query, query.type, query.maxResults, startItem);
+    this.props.changePage(newPage);
   }
 
   render() {
 
-    let {search} = this.props;
-    let activePage = search.query.startIndex + 1,
-      totalPages = 6;
+    let {activePage, totalPages} = this.props.search;
 
     let pages = [...Array(totalPages)].map((page, index) => {
       return (
@@ -35,6 +30,7 @@ class Pagination extends Component {
       )
     });
 
+    //TODO change selector edges cases behaviour...
     let previousPageSelector = (<li>
         <a href="#" aria-label="Previous" onClick={() => {
           this.changePage(activePage - 1)
@@ -69,4 +65,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {newSearch})(Pagination);
+export default connect(mapStateToProps, {changePage})(Pagination);

@@ -9,6 +9,8 @@ const status = {
 const initialState = {
   totalItems: 20,
   status: status.NONE,
+  totalPages: 1,
+  activePage: 1,
   query :{
     searchTerm: 'docker',
     searchType: 'title',
@@ -18,11 +20,27 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  let activePage;
+
   switch (action.type) {
     case SEARCH_REQUEST:
-      return {...state, status: status.SEARCHING, query: action.payload};
+      return {
+        ...state,
+        status: status.SEARCHING,
+        query: action.payload
+      };
     case SEARCH_RESPONSE:
-      return {...state, status: status.DONE, totalItems: action.payload.totalItems};
+      let {totalItems} = action.payload,
+          totalPages = Math.ceil(totalItems / state.query.resultsByPage);
+      activePage = parseInt(state.query.startIndex / state.query.resultsByPage + 1);
+
+      return {
+        ...state,
+        status: status.DONE,
+        totalItems,
+        totalPages,
+        activePage
+      };
     default:
       return state;
   }

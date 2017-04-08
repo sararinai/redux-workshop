@@ -46,12 +46,11 @@ class Book extends Component {
     let imageClass = 'media-left '.concat(this.state.showImage ? '': 'hidden'),
         descriptionClass = 'media-body '.concat(this.state.showDescription ? '': 'hidden');
 
-
     return (
       <div className="media">
         <div className={imageClass} >
           {info.imageLinks &&
-            <BookImage link={'#'}
+            <BookImage link={info.previewLink ? info.previewLink : '#'}
                        image={info.imageLinks.thumbnail}
                        alt={info.title} />
           }

@@ -31,13 +31,13 @@ class BookList extends Component {
 
     return (
       <div className="row">
+        {pagination}
         <div className="col-md-2">
           <TotalResults totalItems={this.props.totalItems}/>
         </div>
         <div className="col-md-12">
           {books}
         </div>
-        {pagination}
       </div>
 
     )

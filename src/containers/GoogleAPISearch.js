@@ -10,7 +10,7 @@ class GoogleAPISearch extends Component {
     this.state = {
       query: '',
       type: 'title',
-      maxResults: 20,
+      maxResults: 10,
       placeHolder: 'Clean Code'
     };
 
@@ -82,6 +82,7 @@ class GoogleAPISearch extends Component {
         <div className="col-md-1 col-sm-1">
           <select className="form-control"
                   onChange={this.handleMaxResultsChange}>
+            <option value={10}>10</option>
             <option value={20}>20</option>
             <option value={40}>40</option>
           </select>
