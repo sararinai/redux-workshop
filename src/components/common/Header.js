@@ -1,12 +1,13 @@
 import React from 'react';
 import AtrapaloLogo from './AtrapaloLogo';
+import Row from './Row';
 
 const Header = () => {
-  var options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+  let options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
 
   //#de0000
   return (
-    <div className="row header">
+    <Row className="header">
       <div className="clearfix">
         <AtrapaloLogo />
         <div className="col-md-8" style={{margin:'0 auto'}}>
@@ -17,7 +18,7 @@ const Header = () => {
           <span style={{float:'right', color:'white'}}>{new Date().toLocaleDateString('es-ES', options)}</span>
         </div>
       </div>
-    </div>
+    </Row>
   );
 };
 

@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Book from '../components/book/Book';
 import BookContainer from '../components/book/BookContainer';
 import Pagination from './Pagination';
-import TotalResults from '../components/TotalResults';
 
 class BookList extends Component {
 
@@ -31,15 +30,11 @@ class BookList extends Component {
 
     return (
       <div className="row">
-        {pagination}
-        <div className="col-md-2">
-          <TotalResults totalItems={this.props.totalItems}/>
-        </div>
         <div className="col-md-12">
           {books}
         </div>
+        {pagination}
       </div>
-
     )
   }
 }

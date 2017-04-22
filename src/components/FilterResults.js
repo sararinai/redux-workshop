@@ -1,0 +1,28 @@
+import React from 'react';
+import {connect} from 'react-redux';
+import ViewSelector from './../containers/ViewSelector';
+
+const FilterResults = (props) => {
+  return (
+    <div className="panel-filter panel panel-default">
+      <div className="panel-heading">
+        <h3 className="panel-title">Filter</h3>
+      </div>
+      <div className="panel-body">
+        <ViewSelector />
+        <div className="jumbotron">
+          Total results <span className="label label-primary">{props.totalItems}</span>
+        </div>
+      </div>
+      <div className="panel-footer">Panel footer</div>
+    </div>
+  )
+};
+
+function mapStateToProps(state) {
+  return {
+    totalItems: state.search.totalItems
+  }
+}
+
+export default connect(mapStateToProps)(FilterResults);

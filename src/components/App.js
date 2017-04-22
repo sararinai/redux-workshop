@@ -3,26 +3,30 @@ import BookList from '../containers/BookList';
 import GoogleAPISearch from '../containers/GoogleAPISearch';
 import Header from './common/Header';
 import ViewSelector from '../containers/ViewSelector';
+import Row from './common/Row';
+import ContainerFluid from './common/ContainerFluid';
+import Column from './common/Column';
+import FilterResults from './FilterResults';
 
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <ContainerFluid>
         <Header />
-        <div className="row">
-          <div className="col-md-2 col-sm-2">
-            <ViewSelector />
-          </div>
-          <div className="col-md-10 col-sm-10">
+        <Row>
+          <Column md="10" mdOffset="2">
             <GoogleAPISearch />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12 col-sm-12">
+          </Column>
+        </Row>
+        <Row>
+          <Column md="2">
+            <FilterResults />
+          </Column>
+          <Column md="10">
             <BookList />
-          </div>
-        </div>
-      </div>
+          </Column>
+        </Row>
+      </ContainerFluid>
     );
   }
 }
