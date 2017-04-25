@@ -5,7 +5,7 @@ import Header from './common/Header';
 import ViewSelector from '../containers/ViewSelector';
 import Row from './common/Row';
 import ContainerFluid from './common/ContainerFluid';
-import Column from './common/Column';
+import Col from './common/Column';
 import FilterResults from './FilterResults';
 
 export default class App extends Component {
@@ -14,17 +14,20 @@ export default class App extends Component {
       <ContainerFluid>
         <Header />
         <Row>
-          <Column md="10" mdOffset="2">
+          <Col md={2}>
+            <ViewSelector />
+          </Col>
+          <Col md={10}>
             <GoogleAPISearch />
-          </Column>
+          </Col>
         </Row>
         <Row>
-          <Column md="2">
+          <Col md={2}>
             <FilterResults />
-          </Column>
-          <Column md="10">
+          </Col>
+          <Col md={10}>
             <BookList />
-          </Column>
+          </Col>
         </Row>
       </ContainerFluid>
     );

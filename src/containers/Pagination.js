@@ -51,7 +51,7 @@ class Pagination extends Component {
       <nav aria-label="Search navigation">
         <ul className="pagination">
           {previousPageSelector}
-          {pages}
+          {/*{pages}*/}
           {nextPageSelector}
         </ul>
       </nav>

@@ -9,10 +9,7 @@ const FilterResults = (props) => {
         <h3 className="panel-title">Filter</h3>
       </div>
       <div className="panel-body">
-        <ViewSelector />
-        <div className="jumbotron">
           Total results <span className="label label-primary">{props.totalItems}</span>
-        </div>
       </div>
       <div className="panel-footer">Panel footer</div>
     </div>
