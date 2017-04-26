@@ -2,17 +2,18 @@ import React, {Component} from 'react';
 import BookList from '../containers/BookList';
 import GoogleAPISearch from '../containers/GoogleAPISearch';
 import Header from './common/Header';
-import ViewSelector from '../containers/ViewSelector';
-import Row from './common/Row';
-import ContainerFluid from './common/ContainerFluid';
-import Col from './common/Column';
+import {ContainerFluid, Row, Col} from './bootstrap/index';
 import FilterResults from './FilterResults';
+import ViewSelector from './../containers/ViewSelector';
+
 
 export default class App extends Component {
   render() {
     return (
       <ContainerFluid>
-        <Header />
+        <Row className="header">
+          <Header />
+        </Row>
         <Row>
           <Col md={2}>
             <ViewSelector />
