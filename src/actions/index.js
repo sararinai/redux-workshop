@@ -1,18 +1,9 @@
 import {googleAPISearchRequestGenerator} from './googleApiSearch';
-const API_URI = 'http://127.0.0.1:3000/api/0.1/';
+import _ from 'lodash';
 
-export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const CHANGE_VIEW = 'CHANGE_VIEW';
 export const SEARCH_REQUEST = 'SEARCH_REQUEST';
 export const SEARCH_RESPONSE = 'SEARCH_RESPONSE';
-
-export function fetchBooks() {
-  let books = axios.get(`${API_URI}books`);
-  return {
-    type: FETCH_BOOKS,
-    payload: books
-  }
-}
 
 export function changeView(activeView) {
   return {
@@ -36,16 +27,23 @@ export function newSearch(
     startIndex = 0
 ) {
 
-  return (dispatch) => {
+  return (dispatch, getState) => {
+      const {search} = getState();
+
+      let query = {
+          searchTerm,
+          searchType,
+          resultsByPage,
+          startIndex
+      };
+
+      if (_.isEqual(query, search.query)) {
+          return;
+      }
 
       dispatch({
           type: SEARCH_REQUEST,
-          payload: {
-              searchTerm,
-              searchType,
-              resultsByPage,
-              startIndex
-          }
+          payload: query
       });
 
       googleAPISearchRequestGenerator(searchTerm, searchType, resultsByPage, startIndex)
