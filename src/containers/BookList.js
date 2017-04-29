@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Book from '../components/book/Book';
 import BookContainer from '../components/book/BookContainer';
 import Pagination from './Pagination';
+import {Row, Col} from 'react-bootstrap';
 
 class BookList extends Component {
 
@@ -24,17 +25,17 @@ class BookList extends Component {
     });
 
     let pagination = this.props.totalItems > 0 &&
-      (<div className="col-md-12 text-center">
+      (<Col md={12} className="text-center">
         <Pagination />
-      </div>);
+      </Col>);
 
     return (
-      <div className="row">
-        <div className="col-md-12">
+      <Row>
+        <Col md={12}>
           {books}
-        </div>
+        </Col>
         {pagination}
-      </div>
+      </Row>
     )
   }
 }

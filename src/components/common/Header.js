@@ -1,6 +1,6 @@
 import React from 'react';
 import AtrapaloLogo from './AtrapaloLogo';
-import {Col} from './../bootstrap/index';
+import {Col} from 'react-bootstrap';
 
 const Header = () => {
   let options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};

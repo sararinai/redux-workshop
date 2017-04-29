@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import BookList from '../containers/BookList';
 import GoogleAPISearch from '../containers/GoogleAPISearch';
 import Header from './common/Header';
-import {ContainerFluid, Row, Col} from './bootstrap/index';
+import {Grid, Row, Col} from 'react-bootstrap';
 import FilterResults from './FilterResults';
 import ViewSelector from './../containers/ViewSelector';
 
@@ -10,12 +10,12 @@ import ViewSelector from './../containers/ViewSelector';
 export default class App extends Component {
   render() {
     return (
-      <ContainerFluid>
+      <Grid fluid={true}>
         <Row className="header">
           <Header />
         </Row>
         <Row>
-          <Col md={2}>
+          <Col md={2} xsHidden>
             <ViewSelector />
           </Col>
           <Col md={10}>
@@ -23,14 +23,14 @@ export default class App extends Component {
           </Col>
         </Row>
         <Row>
-          <Col md={2}>
+          <Col md={2} xsHidden>
             <FilterResults />
           </Col>
           <Col md={10}>
             <BookList />
           </Col>
         </Row>
-      </ContainerFluid>
+      </Grid>
     );
   }
 }
