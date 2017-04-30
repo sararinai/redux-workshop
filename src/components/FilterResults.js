@@ -1,16 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import SearchHistory from './../containers/SearchHistory';
 
 const FilterResults = (props) => {
   return (
-    <div className="panel-filter panel panel-default">
-      <div className="panel-heading">
-        <h3 className="panel-title">Filter</h3>
-      </div>
-      <div className="panel-body">
+    <div>
+      <div className="panel-filter panel panel-default">
+        <div className="panel-heading">
+          <h3 className="panel-title">Filter</h3>
+        </div>
+        <div className="panel-body">
           Total results <span className="label label-primary">{props.totalItems}</span>
+        </div>
       </div>
-      <div className="panel-footer">Panel footer</div>
+      <div className="panel-filter panel panel-default">
+        <div className="panel-heading">
+          <h3 className="panel-title">Search History</h3>
+        </div>
+        <div className="panel-body">
+          <SearchHistory />
+        </div>
+      </div>
     </div>
   )
 };

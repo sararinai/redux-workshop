@@ -30,7 +30,7 @@
     "axios": "^0.15.3",
     "babel-preset-stage-1": "^6.1.18",
     "bootstrap": "^3.3.7",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.4",
     "react": "^15.5.3",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.3",
