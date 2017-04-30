@@ -49,11 +49,10 @@ class Book extends Component {
     return (
       <div className="media">
         <div className={imageClass} >
-          {info.imageLinks &&
-            <BookImage link={info.previewLink ? info.previewLink : '#'}
-                       image={info.imageLinks.thumbnail}
-                       alt={info.title} />
-          }
+          <BookImage link={info.previewLink ? info.previewLink : '#'}
+           image={info.imageLinks ? info.imageLinks.thumbnail : '/noimage.png'}
+           alt={info.title} />
+
           <BookInfo pages={pages}
                     averageRating={info.averageRating}
                     publishedDate={info.publishedDate}
