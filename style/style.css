@@ -55,3 +55,11 @@ h1, h2, h3, h4, h5, h6 {
 .panel-filter {
     margin:10px -5px;
 }
+
+div.pagination, ul.pagination {
+    margin:0;
+}
+
+div.pagination nav {
+    line-height: 0;
+}

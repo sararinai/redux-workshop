@@ -20,34 +20,26 @@ class Pagination extends Component {
 
     let {activePage, totalPages} = this.props.search;
 
-    let pages = [...Array(totalPages)].map((page, index) => {
-      return (
-        <li key={index} className={activePage == (index + 1) ? 'active' : ''}>
-          <a href="#" onClick={() => {
-            this.changePage(index + 1)
-          }}>{index + 1}</a>
-        </li>
-      )
-    });
 
     //TODO change selector edges cases behaviour...
-    let previousPageSelector = (<li>
+    let previousPageSelector = activePage !== 1 && (<li>
         <a href="#" aria-label="Previous" onClick={() => {
           this.changePage(activePage - 1)
         }}>
-          <span aria-hidden="true">&laquo;</span>
+          <span aria-hidden="true">&laquo; Prev</span>
         </a>
       </li>);
 
-    let nextPageSelector = (<li>
+    let nextPageSelector = totalPages > activePage &&(<li>
         <a href="#" aria-label="Next" onClick={() => {
           this.changePage(activePage + 1)
         }}>
-          <span aria-hidden="true">&raquo;</span>
+          <span aria-hidden="true">Next &raquo;</span>
         </a>
       </li>);
 
     return (
+      this.props.search.status === 'DONE' &&
       <nav aria-label="Search navigation">
         <ul className="pagination">
           {previousPageSelector}
