@@ -20,6 +20,14 @@ class GoogleAPISearch extends Component {
     this.doSearch = this.doSearch.bind(this);
   }
 
+  componentDidMount() {
+    this.props.newSearch(
+      'docker',
+      'title',
+      10
+    );
+  }
+
   handleInputChange(event) {
     this.setState({
       query: event.target.value

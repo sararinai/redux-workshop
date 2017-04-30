@@ -20,41 +20,43 @@ export function changePage(newPage) {
   }
 }
 
-export function newSearch(
-    searchTerm,
-    searchType,
-    resultsByPage,
-    startIndex = 0
-) {
+export function newSearch(searchTerm,
+                          searchType,
+                          resultsByPage,
+                          startIndex = 0) {
 
   return (dispatch, getState) => {
-      const {search} = getState();
+    const {search} = getState();
 
-      let query = {
-          searchTerm,
-          searchType,
-          resultsByPage,
-          startIndex
-      };
+    let query = {
+      searchTerm,
+      searchType,
+      resultsByPage,
+      startIndex
+    };
 
-      if (_.isEqual(query, search.query)) {
-          return;
-      }
+    if (searchTerm === '') {
+      return;
+    }
 
-      dispatch({
-          type: SEARCH_REQUEST,
-          payload: query
-      });
+    if (_.isEqual(query, search.query)) {
+      return;
+    }
 
-      googleAPISearchRequestGenerator(searchTerm, searchType, resultsByPage, startIndex)
+    dispatch({
+      type: SEARCH_REQUEST,
+      payload: query
+    });
+
+    googleAPISearchRequestGenerator(searchTerm, searchType, resultsByPage, startIndex)
       .then((response) => {
-          dispatch({
-              type: SEARCH_RESPONSE,
-              payload: {
-                  totalItems: response.data.totalItems,
-                  books: response.data.items
-              }
-          })
+        dispatch({
+          type: SEARCH_RESPONSE,
+          payload: {
+            totalItems: response.data.totalItems,
+            books: response.data.items
+          }
+        })
       });
   };
 }
