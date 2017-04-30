@@ -1,12 +1,6 @@
 import {SEARCH_RESPONSE, RESET_BOOKS} from '../actions/index';
 
-let initialState = {
-  "kind": "books#volumes",
-  "totalItems": 0,
-  "items": []
-};
-
-initialState = [
+let initialState = [
     {
       "kind": "books#volume",
       "id": "bOrnBwAAQBAJ",
@@ -1749,7 +1743,7 @@ initialState = [
 ];
 
 
-export default function (state = initialState, action) {
+export default function (state = [], action) {
   switch (action.type) {
     case SEARCH_RESPONSE:
       if (!action.payload.books) {

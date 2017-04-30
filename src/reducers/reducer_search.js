@@ -2,25 +2,24 @@ import {SEARCH_REQUEST, SEARCH_RESPONSE} from '../actions/index';
 
 const status = {
   NONE: 'NONE',
-  DONE: 'DONE',
-  SEARCHING: 'SEARCHING'
+  SEARCHING: 'SEARCHING',
+  DONE: 'DONE'
 };
 
 const initialState = {
-  totalItems: 20,
+  totalItems: 0,
   status: status.NONE,
-  totalPages: 1,
-  activePage: 1,
-  query :{
-    searchTerm: 'docker',
-    searchType: 'title',
-    resultsByPage: 20,
+  totalPages: 0,
+  activePage: 0,
+  query: {
+    searchTerm: '',
+    searchType: '',
+    resultsByPage: 0,
     startIndex: 0
   }
 };
 
 export default (state = initialState, action) => {
-  let activePage;
 
   switch (action.type) {
     case SEARCH_REQUEST:
@@ -30,9 +29,11 @@ export default (state = initialState, action) => {
         query: action.payload
       };
     case SEARCH_RESPONSE:
-      let {totalItems} = action.payload,
-          totalPages = Math.ceil(totalItems / state.query.resultsByPage);
-      activePage = parseInt(state.query.startIndex / state.query.resultsByPage + 1);
+      let {totalItems} = action.payload;
+
+      let [totalPages, activePage] = getTotalPagesAndActivePage(totalItems,
+        state.query.resultsByPage,
+        state.query.startIndex);
 
       return {
         ...state,
@@ -44,4 +45,11 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
+}
+
+
+function getTotalPagesAndActivePage(totalItems, resultsByPage, startIndex) {
+  let totalPages = Math.ceil(totalItems / resultsByPage),
+    activePage = parseInt(startIndex / resultsByPage + 1);
+  return [totalPages, activePage];
 }
