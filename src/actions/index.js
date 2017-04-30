@@ -16,7 +16,7 @@ export function changePage(newPage) {
   return (dispatch, getState) => {
     let {searchTerm, searchType, resultsByPage} = getState().search.query;
     let startIndex = (newPage - 1) * resultsByPage;
-    newSearch(searchTerm, searchType, resultsByPage, startIndex)(dispatch);
+    newSearch(searchTerm, searchType, resultsByPage, startIndex)(dispatch, getState);
   }
 }
 
