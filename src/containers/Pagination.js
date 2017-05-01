@@ -2,17 +2,14 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {changePage} from '../actions/index';
 
-/**
- * Created by rafael on 27/03/17.
- */
-class Pagination extends Component {
+export class Pagination extends Component {
   constructor(props) {
     super(props);
 
     this.changePage = this.changePage.bind(this);
   }
 
-  changePage(newPage){
+  changePage(newPage) {
     this.props.changePage(newPage);
   }
 
@@ -30,7 +27,7 @@ class Pagination extends Component {
         </a>
       </li>);
 
-    let nextPageSelector = totalPages > activePage &&(<li>
+    let nextPageSelector = totalPages > activePage && (<li>
         <a href="#" aria-label="Next" onClick={() => {
           this.changePage(activePage + 1)
         }}>

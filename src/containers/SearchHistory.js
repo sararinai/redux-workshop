@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {newSearch} from './../actions/index';
 
-class SearchHistory extends Component {
+export class SearchHistory extends Component {
 
   constructor(props) {
     super(props);

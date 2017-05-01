@@ -23,7 +23,7 @@ class GoogleAPISearch extends Component {
   componentDidMount() {
     this.props.newSearch(
       'docker',
-      'title',
+      'byQuery',
       10
     );
   }
