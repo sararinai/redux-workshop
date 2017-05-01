@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 import {changeView} from '../actions/index';
 
-class ViewSelector extends Component {
+export class ViewSelector extends Component {
 
   constructor(props){
     super(props);
@@ -17,9 +16,10 @@ class ViewSelector extends Component {
   }
   
   getActiveClass(view) {
-    if (this.props.activeView == view){
+    if (this.props.activeView === view){
       return 'active';
     }
+    return '';
   }
 
   render() {
@@ -52,8 +52,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({changeView}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ViewSelector);
+export default connect(mapStateToProps, {changeView})(ViewSelector);
