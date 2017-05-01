@@ -5,7 +5,7 @@ import BookContainer from '../components/book/BookContainer';
 import Pagination from './Pagination';
 import {Row, Col} from 'react-bootstrap';
 
-class BookList extends Component {
+export class BookList extends Component {
 
   constructor(props) {
     super(props);
@@ -15,7 +15,7 @@ class BookList extends Component {
     let activeClass = this.props.activeView === '3books-view'
       ? 'col-md-4 col-sm-6' : 'col-md-12 col-sm-12';
 
-    let books = this.props.books.map((book, index) => {
+    let books = this.props.books.map((book) => {
       return (
         <BookContainer key={book.id}
                        activeClass={activeClass}>

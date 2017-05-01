@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import SearchHistory from './../containers/SearchHistory';
+import SearchHistory from './SearchHistory';
 
 const FilterResults = (props) => {
   return (

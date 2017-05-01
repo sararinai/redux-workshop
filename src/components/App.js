@@ -3,7 +3,7 @@ import BookList from '../containers/BookList';
 import GoogleAPISearch from '../containers/GoogleAPISearch';
 import Header from './common/Header';
 import {Grid, Row, Col} from 'react-bootstrap';
-import FilterResults from './FilterResults';
+import FilterResults from '../containers/FilterResults';
 import ViewSelector from './../containers/ViewSelector';
 import Pagination from './../containers/Pagination';
 
