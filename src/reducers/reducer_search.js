@@ -1,6 +1,6 @@
 import {SEARCH_REQUEST, SEARCH_RESPONSE} from '../actions/index';
 
-const status = {
+export const status = {
   NONE: 'NONE',
   SEARCHING: 'SEARCHING',
   DONE: 'DONE'

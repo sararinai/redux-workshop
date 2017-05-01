@@ -1,9 +1,9 @@
-import reducer from '../../src/reducers/reducer_search';
+import reducer, {status} from '../../src/reducers/reducer_search';
 import {SEARCH_REQUEST, SEARCH_RESPONSE}  from '../../src/actions/index';
 
 const initialState = {
   totalItems: 0,
-  status: 'NONE',
+  status: status.NONE,
   totalPages: 0,
   activePage: 0,
   query: {
@@ -34,7 +34,7 @@ describe('search reducer', () => {
 
     const newStatePending = {
       totalItems: 0,
-      status: 'SEARCHING',
+      status: status.SEARCHING,
       totalPages: 0,
       activePage: 0,
       query: action.payload
@@ -48,7 +48,7 @@ describe('search reducer', () => {
 
     let previousState = {
       totalItems: 0,
-      status: 'SEARCHING',
+      status: status.SEARCHING,
       totalPages: 0,
       activePage: 0,
       query: {
@@ -69,7 +69,7 @@ describe('search reducer', () => {
     };
 
     const newStateDone = {
-      status: 'DONE',
+      status: status.DONE,
       totalItems: 40,
       totalPages: 2,
       activePage: 1,
