@@ -10,7 +10,8 @@
     "start": "node server.js",
     "test": "jest",
     "test:watch": "yarn test -- --watch",
-    "test:coverage": "yarn test -- --coverage"
+    "test:coverage": "yarn test -- --coverage",
+    "webpack": "^1.12.9"
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +27,6 @@
     "react-addons-test-utils": "^15.5.0",
     "react-test-renderer": "^15.5.3",
     "redux-mock-store": "^1.2.3",
-    "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
