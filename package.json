@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "build": "webpack -p --config ./webpack.production.config.js",
-    "heroku-postbuild": "build",
+    "heroku-postbuild": "yarn build",
     "start": "node server.js",
     "test": "jest",
     "test:watch": "yarn test -- --watch",
