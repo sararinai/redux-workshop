@@ -1,4 +1,4 @@
-import {SEARCH_RESPONSE} from '../actions/index';
+import { SEARCH_RESPONSE } from '../actions/index';
 
 export default function (state = [], action) {
   switch (action.type) {

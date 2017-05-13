@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   books: BooksReducer,
   activeView: ActiveViewReducer,
   search: SearchReducer,
-  searchHistory: SearchHistoryReducer
+  searchHistory: SearchHistoryReducer,
 });
 
 export default rootReducer;

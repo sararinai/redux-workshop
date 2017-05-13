@@ -5,8 +5,8 @@
   "main": "index.js",
   "repository": "",
   "scripts": {
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "build": "webpack -p --config ./webpack.production.config.js",
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --env=dev",
+    "build": "webpack -p --env=prod --progress --profile --colors",
     "heroku-postbuild": "yarn build",
     "start": "node server.js",
     "test": "jest",
@@ -18,6 +18,9 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^7.0.0",
     "jest": "^19.0.2",
     "jquery": "^2.2.1",

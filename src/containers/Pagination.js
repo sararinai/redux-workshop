@@ -19,21 +19,24 @@ export class Pagination extends Component {
 
 
     //TODO change selector edges cases behaviour...
-    let previousPageSelector = activePage !== 1 && (<li>
-        <a href="#" aria-label="Previous" onClick={() => {
-          this.changePage(activePage - 1);
-        }}>
-          <span aria-hidden="true">&laquo; Prev</span>
-        </a>
-      </li>);
+    let previousPageSelector = activePage !== 1 && (
+    <li>
+      <a href="#" aria-label="Previous" onClick={() => {
+        this.changePage(activePage - 1);
+      }}>
+        <span aria-hidden="true">&laquo; Prev</span>
+      </a>
+    </li>
+      );
 
-    let nextPageSelector = totalPages > activePage && (<li>
-        <a href="#" aria-label="Next" onClick={() => {
-          this.changePage(activePage + 1);
-        }}>
-          <span aria-hidden="true">Next &raquo;</span>
-        </a>
-      </li>);
+    let nextPageSelector = totalPages > activePage && (
+    <li>
+      <a href="#" aria-label="Next" onClick={() => {
+        this.changePage(activePage + 1);
+      }}>
+        <span aria-hidden="true">Next &raquo;</span>
+      </a>
+    </li>);
 
     return (
       this.props.search.status === 'DONE' &&
