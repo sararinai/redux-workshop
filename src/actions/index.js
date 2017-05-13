@@ -9,7 +9,7 @@ export function changeView(activeView) {
   return {
     type: CHANGE_VIEW,
     payload: activeView
-  }
+  };
 }
 
 export function changePage(newPage) {
@@ -17,7 +17,7 @@ export function changePage(newPage) {
     let {searchTerm, searchType, resultsByPage} = getState().search.query;
     let startIndex = (newPage - 1) * resultsByPage;
     newSearch(searchTerm, searchType, resultsByPage, startIndex)(dispatch, getState);
-  }
+  };
 }
 
 export function newSearch(searchTerm,
@@ -56,7 +56,7 @@ export function newSearch(searchTerm,
             totalItems: response.data.totalItems,
             books: response.data.items
           }
-        })
+        });
       });
   };
 }

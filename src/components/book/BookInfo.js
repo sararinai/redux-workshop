@@ -1,8 +1,6 @@
 import React from 'react';
 
-
-
-const BookInfo = ({pages, averageRating, publishedDate, industryIdentifiers, authors}) => {
+const BookInfo = ({pages, publishedDate, industryIdentifiers, authors}) => {
   let isbns = industryIdentifiers &&
     industryIdentifiers.map((isbn) => {
       return (

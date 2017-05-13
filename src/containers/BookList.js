@@ -36,7 +36,7 @@ export class BookList extends Component {
         </Col>
         {pagination}
       </Row>
-    )
+    );
   }
 }
 
@@ -45,7 +45,7 @@ function mapStateToProps(state) {
     books: state.books,
     totalItems: state.search.totalItems,
     activeView: state.activeView
-  }
+  };
 }
 
 export default connect(mapStateToProps)(BookList);

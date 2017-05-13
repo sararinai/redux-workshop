@@ -31,7 +31,7 @@ class GoogleAPISearch extends Component {
   handleInputChange(event) {
     this.setState({
       query: event.target.value
-    })
+    });
   }
 
   handleTypeSelectorChange(event) {
@@ -46,7 +46,7 @@ class GoogleAPISearch extends Component {
         placeHolder = 'Robert C. Martin';
         break;
       case 'publisher' :
-        placeHolder = "O'Reilly Media, Inc";
+        placeHolder = 'O\'Reilly Media, Inc';
         break;
       case 'isbn':
         placeHolder = '9781785288319';
@@ -56,13 +56,13 @@ class GoogleAPISearch extends Component {
     this.setState({
       type: value,
       placeHolder
-    })
+    });
   }
 
   handleMaxResultsChange(event) {
     this.setState({
       maxResults: event.target.value
-    })
+    });
   }
 
   doSearch(event) {
@@ -117,7 +117,7 @@ class GoogleAPISearch extends Component {
 function mapStatusToProps(state) {
   return {
     searchStatus: state.search.status
-  }
+  };
 }
 
 export default connect(mapStatusToProps, {newSearch})(GoogleAPISearch);

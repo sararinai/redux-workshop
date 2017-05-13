@@ -21,7 +21,7 @@ export class Pagination extends Component {
     //TODO change selector edges cases behaviour...
     let previousPageSelector = activePage !== 1 && (<li>
         <a href="#" aria-label="Previous" onClick={() => {
-          this.changePage(activePage - 1)
+          this.changePage(activePage - 1);
         }}>
           <span aria-hidden="true">&laquo; Prev</span>
         </a>
@@ -29,7 +29,7 @@ export class Pagination extends Component {
 
     let nextPageSelector = totalPages > activePage && (<li>
         <a href="#" aria-label="Next" onClick={() => {
-          this.changePage(activePage + 1)
+          this.changePage(activePage + 1);
         }}>
           <span aria-hidden="true">Next &raquo;</span>
         </a>
@@ -51,7 +51,7 @@ export class Pagination extends Component {
 function mapStateToProps(state) {
   return {
     search: state.search
-  }
+  };
 }
 
 export default connect(mapStateToProps, {changePage})(Pagination);

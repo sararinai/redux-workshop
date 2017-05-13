@@ -49,7 +49,7 @@ export class ViewSelector extends Component {
 function mapStateToProps(state) {
   return {
     activeView: state.activeView
-  }
+  };
 }
 
 export default connect(mapStateToProps, {changeView})(ViewSelector);

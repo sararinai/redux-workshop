@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
         status: status.SEARCHING,
         query: action.payload
       };
-    case SEARCH_RESPONSE:
+    case SEARCH_RESPONSE: {
       let {totalItems} = action.payload;
 
       let [totalPages, activePage] = getTotalPagesAndActivePage(totalItems,
@@ -42,10 +42,11 @@ export default (state = initialState, action) => {
         totalPages,
         activePage
       };
+    }
     default:
       return state;
   }
-}
+};
 
 
 function getTotalPagesAndActivePage(totalItems, resultsByPage, startIndex) {

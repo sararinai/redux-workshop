@@ -22,13 +22,13 @@ const FilterResults = (props) => {
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 function mapStateToProps(state) {
   return {
     totalItems: state.search.totalItems
-  }
+  };
 }
 
 export default connect(mapStateToProps)(FilterResults);

@@ -3,9 +3,10 @@ import _ from 'lodash';
 
 export default function (state = [], action) {
   switch (action.type) {
-    case SEARCH_REQUEST:
+    case SEARCH_REQUEST: {
       let {searchTerm, searchType} = action.payload;
       return _.uniqWith([...state, {searchTerm, searchType}], _.isEqual);
+    }
     default:
       return state;
   }

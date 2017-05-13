@@ -11,12 +11,14 @@
     "start": "node server.js",
     "test": "jest",
     "test:watch": "yarn test -- --watch",
-    "test:coverage": "yarn test -- --coverage"
+    "test:coverage": "yarn test -- --coverage",
+    "eslint": "eslint src"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.0",
     "jest": "^19.0.2",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",

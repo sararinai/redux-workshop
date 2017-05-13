@@ -1,6 +1,6 @@
 import axios from 'axios';
 const API_KEY = 'AIzaSyAk-aZkG4d0yS_TRTh2NyAtEfhtAfQdE5c';
-const GOOGLE_API = `https://www.googleapis.com/books/v1/volumes`;
+const GOOGLE_API = 'https://www.googleapis.com/books/v1/volumes';
 
 export function googleAPISearchRequestGenerator(
     searchTerm,

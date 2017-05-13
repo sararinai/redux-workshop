@@ -27,7 +27,7 @@ export class SearchHistory extends Component {
           key={index}
           type="button"
           className="list-group-item"
-          onClick={() => {this.handleSearch(search)}}
+          onClick={() => {this.handleSearch(search);}}
         >
           {search.searchTerm} <span className="badge">{search.searchType}</span>
         </button>
@@ -45,7 +45,7 @@ export class SearchHistory extends Component {
 function mapStateToProps(state) {
   return {
     searchHistory: state.searchHistory
-  }
+  };
 }
 
 export default connect(mapStateToProps, {newSearch})(SearchHistory);

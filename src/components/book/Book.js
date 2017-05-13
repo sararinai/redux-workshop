@@ -4,7 +4,7 @@ import BookDescription from './BookDescription';
 import BookInfo from './BookInfo';
 
 class Book extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -30,28 +30,27 @@ class Book extends Component {
     });
   }
 
-  render(){
+  render() {
 
     if (this.props.book == 'undefined') {
       return null;
     }
 
     let book = this.props.book,
-        textSnippet = book.searchInfo && book.searchInfo.textSnippet,
-        {volumeInfo:info} = book,
-        limitedDescription = info.description &&
-            info.description.substr(0, 800).concat(info.description.length > 800 ? '...' : ''),
-        pages = info.pageCount;
+      {volumeInfo: info} = book,
+      limitedDescription = info.description &&
+        info.description.substr(0, 800).concat(info.description.length > 800 ? '...' : ''),
+      pages = info.pageCount;
 
-    let imageClass = 'media-left '.concat(this.state.showImage ? '': 'hidden'),
-        descriptionClass = 'media-body '.concat(this.state.showDescription ? '': 'hidden');
+    let imageClass = 'media-left '.concat(this.state.showImage ? '' : 'hidden'),
+      descriptionClass = 'media-body '.concat(this.state.showDescription ? '' : 'hidden');
 
     return (
       <div className="media">
-        <div className={imageClass} >
+        <div className={imageClass}>
           <BookImage link={info.previewLink ? info.previewLink : '#'}
-           image={info.imageLinks ? info.imageLinks.thumbnail : '/noimage.png'}
-           alt={info.title} />
+                     image={info.imageLinks ? info.imageLinks.thumbnail : '/noimage.png'}
+                     alt={info.title}/>
 
           <BookInfo pages={pages}
                     averageRating={info.averageRating}
