@@ -6,7 +6,8 @@
   "repository": "",
   "scripts": {
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "postinstall": "webpack -p --config ./webpack.production.config.js",
+    "build": "webpack -p --config ./webpack.production.config.js",
+    "heroku-postbuild": "build",
     "start": "node server.js",
     "test": "jest",
     "test:watch": "yarn test -- --watch",
@@ -15,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^3.19.0",
     "jest": "^19.0.2",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
