@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const APP_DIR = path.resolve(__dirname, 'src');
 const BUILD_DIR = path.resolve(__dirname, 'public/dist');
 
-console.log('DEV');
+console.log('PROD');
 
 let config = {
   entry: [
@@ -21,12 +21,14 @@ let config = {
       loader: 'babel-loader',
     }]
   },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: './'
-  },
-  plugins: []
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ]
 };
-
 
 module.exports = config;
