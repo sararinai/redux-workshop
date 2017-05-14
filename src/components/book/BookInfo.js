@@ -5,7 +5,7 @@ const BookInfo = ({pages, publishedDate, industryIdentifiers, authors}) => {
     industryIdentifiers.map((isbn) => {
       return (
         <span key={isbn.identifier}
-              className="label label-default">
+          className="label label-default">
           {isbn.type.replace('_', ' ')} : {isbn.identifier}
         </span>
       );
@@ -18,6 +18,7 @@ const BookInfo = ({pages, publishedDate, industryIdentifiers, authors}) => {
           <span key={index} className="label label-primary">{author}</span>
         );
       }
+      return null;
     });
 
   return (
