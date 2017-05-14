@@ -14,7 +14,7 @@ export class SearchHistory extends Component {
     this.props.newSearch(
       search.searchTerm,
       search.searchType,
-      10,
+      20,
       0,
     );
   }

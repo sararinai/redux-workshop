@@ -52,6 +52,6 @@ describe('SearchHistory component', () => {
     tree.children[1].children[0].children[2].props.onClick();
 
     expect(newSearch.mock.calls[0])
-      .toEqual(['robert c. martin', 'author', 10, 0]);
+      .toEqual(['robert c. martin', 'author', 20, 0]);
   });
 });

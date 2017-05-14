@@ -11,7 +11,7 @@ class GoogleAPISearch extends Component {
     this.state = {
       query: '',
       type: 'title',
-      maxResults: 10,
+      maxResults: 20,
       placeHolder: 'Clean Code',
     };
 
@@ -25,7 +25,7 @@ class GoogleAPISearch extends Component {
     this.props.newSearch(
       'docker',
       'byQuery',
-      10,
+      20,
     );
   }
 
@@ -97,7 +97,6 @@ class GoogleAPISearch extends Component {
             className="form-control"
             onChange={this.handleMaxResultsChange}
           >
-            <option value={10}>10</option>
             <option value={20}>20</option>
             <option value={40}>40</option>
           </select>
