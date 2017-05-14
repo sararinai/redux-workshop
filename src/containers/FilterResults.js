@@ -13,14 +13,7 @@ const FilterResults = (props) => {
           Total results <span className="label label-primary">{props.totalItems}</span>
         </div>
       </div>
-      <div className="panel-filter panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title">Search History</h3>
-        </div>
-        <div className="panel-body">
-          <SearchHistory />
-        </div>
-      </div>
+      <SearchHistory />
     </div>
   );
 };

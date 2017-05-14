@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {newSearch} from './../actions/index';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { newSearch } from './../actions/index';
 
 export class SearchHistory extends Component {
 
@@ -15,19 +15,21 @@ export class SearchHistory extends Component {
       search.searchTerm,
       search.searchType,
       10,
-      0
+      0,
     );
   }
 
 
   render() {
-    let searchList = this.props.searchHistory.map((search, index) => {
+    const searchList = this.props.searchHistory.map((search) => {
       return (
         <button
-          key={index}
+          key={`${search.searchTerm}${search.searchType}`}
           type="button"
           className="list-group-item"
-          onClick={() => {this.handleSearch(search);}}
+          onClick={() => {
+            this.handleSearch(search);
+          }}
         >
           {search.searchTerm} <span className="badge">{search.searchType}</span>
         </button>
@@ -35,8 +37,15 @@ export class SearchHistory extends Component {
     });
 
     return (
-      <div className="list-group">
-        {searchList}
+      <div className="panel-filter panel panel-default">
+        <div className="panel-heading">
+          <h3 className="panel-title">Search History</h3>
+        </div>
+        <div className="panel-body">
+          <div className="list-group">
+            {searchList}
+          </div>
+        </div>
       </div>
     );
   }
@@ -44,8 +53,8 @@ export class SearchHistory extends Component {
 
 function mapStateToProps(state) {
   return {
-    searchHistory: state.searchHistory
+    searchHistory: state.searchHistory,
   };
 }
 
-export default connect(mapStateToProps, {newSearch})(SearchHistory);
+export default connect(mapStateToProps, { newSearch })(SearchHistory);
