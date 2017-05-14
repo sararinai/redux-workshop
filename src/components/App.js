@@ -32,7 +32,7 @@ export default class App extends Component {
             <GoogleAPISearch />
           </Col>
         </Row>
-        <Row>
+        <Row className="book-list">
           <Col md={2} xsHidden>
             <FilterResults />
           </Col>

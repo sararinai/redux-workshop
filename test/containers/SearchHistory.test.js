@@ -49,7 +49,7 @@ describe('SearchHistory component', () => {
         newSearch={newSearch}/>
     ).toJSON();
 
-    tree.children[2].props.onClick();
+    tree.children[1].children[0].children[2].props.onClick();
 
     expect(newSearch.mock.calls[0])
       .toEqual(['robert c. martin', 'author', 10, 0]);
