@@ -30,7 +30,7 @@ exports[`BookList component should render a list of books 1`] = `
             <img
               alt="Docker Containers"
               className="media-object img-thumbnail"
-              src="http://books.google.com/books/content?id=L08IrgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+              src="https://books.google.com/books/content?id=L08IrgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
             />
           </a>
           <div>

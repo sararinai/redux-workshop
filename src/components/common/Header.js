@@ -8,8 +8,10 @@ const Header = () => {
   // #de0000
   return (
     <div>
-      <AtrapaloLogo />
-      <Col md={8} style={{ margin: '0 auto' }}>
+      <Col md={4} sm={4} xsHidden>
+        <AtrapaloLogo />
+      </Col>
+      <Col md={8} sm={8} xs={12} style={{ margin: '0 auto' }}>
         <h1
           style={{ textAlign: 'right', verticalAlign: 'middle', color: 'white' }}
           className="right"

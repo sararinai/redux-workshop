@@ -3,21 +3,23 @@
 exports[`renders correctly 1`] = `
 <div>
   <div
-    className="col-md-4"
+    className="col-md-4 col-sm-4 hidden-xs"
   >
-    <img
-      alt="Atrapalo Tech library title"
-      height={50}
-      src="https://www.atrapalo.com/assets/common/logo-acento@2x.png"
-    />
-    <img
-      alt="Atrapalo Tech library logo"
-      height={50}
-      src="https://www.atrapalo.com/assets/common/a@2x.png"
-    />
+    <div>
+      <img
+        alt="Atrapalo Tech library title"
+        height={50}
+        src="https://www.atrapalo.com/assets/common/logo-acento@2x.png"
+      />
+      <img
+        alt="Atrapalo Tech library logo"
+        height={50}
+        src="https://www.atrapalo.com/assets/common/a@2x.png"
+      />
+    </div>
   </div>
   <div
-    className="col-md-8"
+    className="col-md-8 col-sm-8 col-xs-12"
     style={
       Object {
         "margin": "0 auto",

@@ -15,18 +15,20 @@ export default class App extends Component {
         <Row className="header">
           <Header />
         </Row>
-        <Row>
-          <Col md={2} xsHidden>
-            <Row>
-              <Col md={6}>
-                <ViewSelector />
-              </Col>
-              <Col md={6} className="pagination">
-                <Pagination />
-              </Col>
-            </Row>
-          </Col>
-          <Col md={10}>
+        {/*<Row>*/}
+          {/*<Col md={12} xsHidden>*/}
+            {/*<Row>*/}
+              {/*<Col md={6}>*/}
+                {/*<ViewSelector />*/}
+              {/*</Col>*/}
+              {/*<Col md={6} className="pagination">*/}
+                {/*<Pagination />*/}
+              {/*</Col>*/}
+            {/*</Row>*/}
+          {/*</Col>*/}
+        {/*</Row>*/}
+        <Row className="google-search">
+          <Col md={12}>
             <GoogleAPISearch />
           </Col>
         </Row>

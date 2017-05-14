@@ -1,6 +1,6 @@
 .header  {
     background-color: #de0000;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 * {
@@ -9,7 +9,10 @@
 
 .search-form div{
     padding:0;
-    margin:0;
+}
+
+.google-search {
+    padding: 5px 10px;
 }
 
 .search-form input , .search-form select{

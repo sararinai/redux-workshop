@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {newSearch} from '../actions/index';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Col } from 'react-bootstrap';
+import { newSearch } from '../actions/index';
 
 class GoogleAPISearch extends Component {
 
@@ -11,7 +12,7 @@ class GoogleAPISearch extends Component {
       query: '',
       type: 'title',
       maxResults: 10,
-      placeHolder: 'Clean Code'
+      placeHolder: 'Clean Code',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,19 +25,19 @@ class GoogleAPISearch extends Component {
     this.props.newSearch(
       'docker',
       'byQuery',
-      10
+      10,
     );
   }
 
   handleInputChange(event) {
     this.setState({
-      query: event.target.value
+      query: event.target.value,
     });
   }
 
   handleTypeSelectorChange(event) {
     let placeHolder = '';
-    let value = event.target.value;
+    const value = event.target.value;
 
     switch (value) {
       case 'title' :
@@ -51,17 +52,19 @@ class GoogleAPISearch extends Component {
       case 'isbn':
         placeHolder = '9781785288319';
         break;
+      default:
+        placeHolder = '';
     }
 
     this.setState({
       type: value,
-      placeHolder
+      placeHolder,
     });
   }
 
   handleMaxResultsChange(event) {
     this.setState({
-      maxResults: event.target.value
+      maxResults: event.target.value,
     });
   }
 
@@ -70,45 +73,53 @@ class GoogleAPISearch extends Component {
     this.props.newSearch(
       this.state.query,
       this.state.type,
-      this.state.maxResults
+      this.state.maxResults,
     );
   }
 
   render() {
     return (
       <form onSubmit={this.doSearch} className="row search-form">
-        <div className="col-md-2 col-sm-2">
-          <select className="form-control"
-                  onChange={this.handleTypeSelectorChange}>
+        <Col md={2} sm={2} xs={8}>
+          <select
+            className="form-control"
+            onChange={this.handleTypeSelectorChange}
+          >
             <option value={'title'}>Title</option>
             <option value={'author'}>Author</option>
             <option value={'publisher'}>Publisher</option>
             <option value={'byquery'}>ByQuery</option>
             <option value={'isbn'}>ISBN</option>
           </select>
-        </div>
-        <div className="col-md-1 col-sm-1">
-          <select className="form-control"
-                  onChange={this.handleMaxResultsChange}>
+        </Col>
+        <Col md={1} sm={1} xs={4}>
+          <select
+            className="form-control"
+            onChange={this.handleMaxResultsChange}
+          >
             <option value={10}>10</option>
             <option value={20}>20</option>
             <option value={40}>40</option>
           </select>
-        </div>
-        <div className="col-md-7 col-sm-7">
-          <input type="text"
-                 className="form-control"
-                 value={this.state.query}
-                 onChange={this.handleInputChange}
-                 placeholder={this.state.placeHolder}/>
-        </div>
-        <div className="col-md-2 col-sm-2">
-          <button className="btn form-control"
-                 type="submit">
-            {this.props.searchStatus != 'SEARCHING' ? 'Search on Google' :
-              (<i className="fa fa-spinner fa-spin"></i>)}
+        </Col>
+        <Col md={7} sm={7} xs={12}>
+          <input
+            type="text"
+            className="form-control"
+            value={this.state.query}
+            onChange={this.handleInputChange}
+            placeholder={this.state.placeHolder}
+          />
+        </Col>
+        <Col md={2} sm={2} xs={12}>
+          <button
+            className="btn form-control"
+            type="submit"
+          >
+            {this.props.searchStatus !== 'SEARCHING' ? 'Search' :
+              (<i className="fa fa-spinner fa-spin" />)}
           </button>
-        </div>
+        </Col>
       </form>
     );
   }
@@ -116,8 +127,8 @@ class GoogleAPISearch extends Component {
 
 function mapStatusToProps(state) {
   return {
-    searchStatus: state.search.status
+    searchStatus: state.search.status,
   };
 }
 
-export default connect(mapStatusToProps, {newSearch})(GoogleAPISearch);
+export default connect(mapStatusToProps, { newSearch })(GoogleAPISearch);
