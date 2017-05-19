@@ -13,7 +13,7 @@ const BookInfo = ({pages, publishedDate, industryIdentifiers, authors}) => {
 
   authors = authors &&
     authors.map((author, index) => {
-      if (index < 7) {
+      if (index < 5) {
         return (
           <span key={index} className="label label-primary">{author}</span>
         );

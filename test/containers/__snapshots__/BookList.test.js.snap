@@ -21,7 +21,7 @@ exports[`BookList component should render a list of books 1`] = `
         className="media"
       >
         <div
-          className="media-left "
+          className="media-left"
         >
           <a
             href="http://books.google.es/books?id=L08IrgEACAAJ&dq=%22docker%22+subject:Computers&hl=&cd=10&source=gbs_api"
@@ -67,7 +67,7 @@ exports[`BookList component should render a list of books 1`] = `
           </div>
         </div>
         <div
-          className="media-body "
+          className="media-body"
         >
           <div>
             <h4

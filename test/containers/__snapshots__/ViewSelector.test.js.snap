@@ -7,7 +7,6 @@ exports[`viewSelector component should render default viewSelector 1`] = `
 >
   <button
     className="btn btn-default active"
-    disabled={true}
     onClick={[Function]}
     type="button"
   >
@@ -43,7 +42,6 @@ exports[`viewSelector component should render default viewSelector 2`] = `
 >
   <button
     className="btn btn-default "
-    disabled={true}
     onClick={[Function]}
     type="button"
   >
@@ -79,7 +77,6 @@ exports[`viewSelector component should render default viewSelector 3`] = `
 >
   <button
     className="btn btn-default "
-    disabled={true}
     onClick={[Function]}
     type="button"
   >

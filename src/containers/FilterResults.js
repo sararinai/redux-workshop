@@ -1,13 +1,14 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import SearchHistory from './SearchHistory';
+import ViewSelector from "./ViewSelector";
 
 const FilterResults = (props) => {
   return (
     <div>
       <div className="panel-filter panel panel-default">
         <div className="panel-heading">
-          <h3 className="panel-title">Filter</h3>
+            <ViewSelector />
         </div>
         <div className="panel-body">
           Total results <span className="label label-primary">{props.totalItems}</span>

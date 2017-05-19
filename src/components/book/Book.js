@@ -1,34 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import BookImage from './BookImage';
 import BookDescription from './BookDescription';
 import BookInfo from './BookInfo';
 
 class Book extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showDescription: true,
-      showImage: true
-    };
-
-    this.setOnlyImageState = this.setOnlyImageState.bind(this);
-    this.setOnlyDescriptionState = this.setOnlyDescriptionState.bind(this);
-  }
-
-  setOnlyImageState() {
-    this.setState({
-      showDescription: false,
-      showImage: true
-    });
-  }
-
-  setOnlyDescriptionState() {
-    this.setState({
-      showDescription: true,
-      showImage: false
-    });
-  }
 
   render() {
 
@@ -42,27 +17,35 @@ class Book extends Component {
         info.description.substr(0, 800).concat(info.description.length > 800 ? '...' : ''),
       pages = info.pageCount;
 
-    let imageClass = 'media-left '.concat(this.state.showImage ? '' : 'hidden'),
-      descriptionClass = 'media-body '.concat(this.state.showDescription ? '' : 'hidden');
+    let bookImage = this.props.activeView !== 'list-view' && (
+        <BookImage link={info.previewLink ? info.previewLink : '#'}
+                   image={info.imageLinks ? info.imageLinks.thumbnail : '/noimage.png'}
+                   alt={info.title}/>
+    );
+
+    let bookInfo = this.props.activeView !== 'list-view' && (
+        <BookInfo pages={pages}
+                  averageRating={info.averageRating}
+                  publishedDate={info.publishedDate}
+                  industryIdentifiers={info.industryIdentifiers}
+                  authors={info.authors}/>
+    );
+
+    let bookDescription = (
+        <BookDescription title={info.title}
+                         categories={info.categories}
+                         publisher={info.publisher}
+                         description={limitedDescription}/>
+    );
 
     return (
       <div className="media">
-        <div className={imageClass}>
-          <BookImage link={info.previewLink ? info.previewLink : '#'}
-                     image={info.imageLinks ? info.imageLinks.thumbnail : '/noimage.png'}
-                     alt={info.title}/>
-
-          <BookInfo pages={pages}
-                    averageRating={info.averageRating}
-                    publishedDate={info.publishedDate}
-                    industryIdentifiers={info.industryIdentifiers}
-                    authors={info.authors}/>
+        <div className="media-left">
+            { bookImage }
+            { bookInfo }
         </div>
-        <div className={descriptionClass}>
-          <BookDescription title={info.title}
-                           categories={info.categories}
-                           publisher={info.publisher}
-                           description={limitedDescription}/>
+        <div className="media-body">
+            {bookDescription}
         </div>
       </div>
     );

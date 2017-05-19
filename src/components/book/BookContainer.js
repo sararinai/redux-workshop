@@ -1,9 +1,12 @@
 import React from 'react';
 
-const BookContainer = ({children, activeClass}) =>{
+const BookContainer = ({children, activeClass, activeView}) =>{
+
+  const height = activeView !== 'list-view' ? 400 : 'initial';
+
   return (
     <div className={activeClass}
-         style={{height: 400, padding: 10, overflow:'hidden'}}>
+         style={{height, padding: 10, overflow:'hidden'}}>
       {children}
     </div>
   );
