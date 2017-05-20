@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BookImage from './BookImage';
+import BookImage from './BookImage.jsx';
 import BookDescription from './BookDescription';
 import BookInfo from './BookInfo';
 
