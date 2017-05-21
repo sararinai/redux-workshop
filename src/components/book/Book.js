@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BookImage from './BookImage.jsx';
-import BookDescription from './BookDescription';
+import BookDescription from './BookDescription.jsx';
 import BookInfo from './BookInfo';
 
 class Book extends Component {
