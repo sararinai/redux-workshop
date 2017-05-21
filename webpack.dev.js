@@ -1,32 +1,32 @@
 const path = require('path');
-const webpack = require('webpack');
+
 const APP_DIR = path.resolve(__dirname, 'src');
 const BUILD_DIR = path.resolve(__dirname, 'public/dist');
 
-console.log('DEV');
-
-let config = {
+const config = {
   entry: [
-    APP_DIR + '/index.js'
+    `${APP_DIR}/index.js`,
   ],
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js',
-    publicPath: 'public/dist'
+    publicPath: 'public/dist',
   },
   module: {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel-loader',
-    }]
+    }],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
   },
-  plugins: []
+  plugins: [],
 };
-
 
 module.exports = config;
