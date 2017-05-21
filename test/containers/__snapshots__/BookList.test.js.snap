@@ -25,6 +25,7 @@ exports[`BookList component should render a list of books 1`] = `
         >
           <a
             href="http://books.google.es/books?id=L08IrgEACAAJ&dq=%22docker%22+subject:Computers&hl=&cd=10&source=gbs_api"
+            rel="noopener noreferrer"
             target="_blank"
           >
             <img
@@ -85,12 +86,7 @@ exports[`BookList component should render a list of books 1`] = `
              
             Addison-Wesley Professional
             <p
-              style={
-                Object {
-                  "fontSize": 12,
-                  "textAlign": "justify",
-                }
-              }
+              className="description"
             >
               The Practical Guide to Running Docker on Linux Systems or Cloud Environments Whether on your laptop or a remote cloud, Docker can transform how you create, test, deploy, and manage your most critical applications. In Doc ker Containers , Christopher Negus helps you master Docker containerization from the ground up. You'll start out running a few Docker container images in Ubuntu, Fedora, RHEL, CoreOS, or Project Atomic. By the time you've finished, you'll be deploying enterprise-quality, multi-container Kubernetes setups in modern Linux and cloud environments. Writing for system administrators, software developers, and technology enthusiasts, Negus touches on every aspect of working with Docker: setting up containerized applications, working with both individual and multiple containers, ru...
             </p>
