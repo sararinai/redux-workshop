@@ -5,14 +5,27 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
+import { loadState, saveState } from './localStorage';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
 
+const persistedState = loadState();
+
+const store = createStoreWithMiddleware(
+  reducers,
+  persistedState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);
+
+store.subscribe(() => {
+  //TODO avoid unnecesary persistence.
+  saveState({
+    searchHistory: store.getState().searchHistory,
+  });
+});
+
 ReactDOM.render(
-  <Provider store={
-    createStoreWithMiddleware(reducers,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )}>
+  <Provider store={store}>
     <App />
   </Provider>
   , document.querySelector('#container'));
