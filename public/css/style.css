@@ -71,3 +71,7 @@ div.pagination, ul.pagination {
 div.pagination nav {
     line-height: 0;
 }
+
+.badge {
+    background-color: #4F4F4F;
+}
