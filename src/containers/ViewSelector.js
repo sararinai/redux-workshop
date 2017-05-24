@@ -26,16 +26,19 @@ export class ViewSelector extends Component {
     return (
       <div className="btn-group" role="group">
         <button type="button"
+                aria-label="grid view"
                 className={'btn btn-default '.concat(this.getActiveClass('grid-view'))}
                 onClick={() => this.changeView('grid-view')}>
           <span className="glyphicon glyphicon-th-large" />
         </button>
         <button type="button"
+                aria-label="3 books view"
                 className={'btn btn-default '.concat(this.getActiveClass('3books-view'))}
                 onClick={() => this.changeView('3books-view')}>
           <span className="glyphicon glyphicon-th" />
         </button>
         <button type="button"
+                aria-label="list view"
                 className={'btn btn-default '.concat(this.getActiveClass('list-view'))}
                 onClick={() => this.changeView('list-view')}>
           <span className="glyphicon glyphicon-th-list" />
