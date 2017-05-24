@@ -83,6 +83,7 @@ class GoogleAPISearch extends Component {
         <Col md={2} sm={2} xs={8}>
           <select
             className="form-control"
+            aria-label="query type selector"
             onChange={this.handleTypeSelectorChange}
           >
             <option value={'title'}>Title</option>
@@ -95,6 +96,7 @@ class GoogleAPISearch extends Component {
         <Col md={1} sm={1} xs={4}>
           <select
             className="form-control"
+            aria-label="max results number"
             onChange={this.handleMaxResultsChange}
           >
             <option value={20}>20</option>
@@ -107,6 +109,7 @@ class GoogleAPISearch extends Component {
             className="form-control"
             value={this.state.query}
             onChange={this.handleInputChange}
+            aria-label="search term"
             placeholder={this.state.placeHolder}
           />
         </Col>
