@@ -1,5 +1,5 @@
 import {googleAPISearchRequestGenerator} from './googleApiSearch';
-import _ from 'lodash';
+import isEqual from 'lodash/isEqual';
 
 export const CHANGE_VIEW = 'CHANGE_VIEW';
 export const SEARCH_REQUEST = 'SEARCH_REQUEST';
@@ -39,7 +39,7 @@ export function newSearch(searchTerm,
       return;
     }
 
-    if (_.isEqual(query, search.query)) {
+    if (isEqual(query, search.query)) {
       return;
     }
 

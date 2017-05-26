@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Col } from 'react-bootstrap';
+import Col from 'react-bootstrap/lib/Col';
 import { newSearch } from '../actions/index';
 
 class GoogleAPISearch extends Component {

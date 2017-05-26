@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Label } from 'react-bootstrap';
+import Label from 'react-bootstrap/lib/Label';
 
 const BookDescription = ({ title, categories, publisher, description }) => {
   const labeledCategories = categories.map(category => (

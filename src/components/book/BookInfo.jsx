@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Label } from 'react-bootstrap';
+import Label from 'react-bootstrap/lib/Label';
 
 const BookInfo = ({ pages, publishedDate, industryIdentifiers, authors }) => {
   const isbns = industryIdentifiers.map(isbn => (

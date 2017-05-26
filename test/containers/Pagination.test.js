@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {Pagination} from './../../src/containers/Pagination';
-import _ from 'lodash';
+import flattenDeep from 'lodash/flattenDeep';
 
 const search = {
     status: 'DONE',
@@ -58,7 +58,7 @@ describe('Pagination component', () => {
     let nextLink = tree.children[0].children[1].children[0];
     nextLink.props.onClick();
 
-    expect(_.flattenDeep(changePage.mock.calls))
+    expect(flattenDeep(changePage.mock.calls))
       .toEqual([1,3]);
   });
 });

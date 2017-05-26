@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {ViewSelector} from './../../src/containers/ViewSelector';
-import _ from 'lodash';
+import flattenDeep from 'lodash/flattenDeep';
 
 describe('viewSelector component', () => {
   it('should render default viewSelector', () => {
@@ -48,7 +48,7 @@ describe('viewSelector component', () => {
 
     tree.children[2].props.onClick();
 
-    expect(_.flattenDeep(changeView.mock.calls))
+    expect(flattenDeep(changeView.mock.calls))
       .toEqual(['grid-view', '3books-view', 'list-view']);
   });
 });

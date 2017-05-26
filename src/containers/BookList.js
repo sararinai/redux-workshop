@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { Row, Col } from 'react-bootstrap';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 import Book from '../components/book/Book';
 import BookContainer from '../components/book/BookContainer';
 import Pagination from './Pagination';

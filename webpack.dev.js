@@ -1,4 +1,5 @@
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const APP_DIR = path.resolve(__dirname, 'src');
 const BUILD_DIR = path.resolve(__dirname, 'public/dist');
@@ -26,7 +27,9 @@ const config = {
     historyApiFallback: true,
     contentBase: './',
   },
-  plugins: [],
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ],
 };
 
 module.exports = config;

@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import Grid from 'react-bootstrap/lib/Grid';
+import Col from 'react-bootstrap/lib/Col';
+import Row from 'react-bootstrap/lib/Row';
 import BookList from '../containers/BookList';
 import GoogleAPISearch from '../containers/GoogleAPISearch';
 import Header from './common/Header';
-import {Grid, Row, Col} from 'react-bootstrap';
 import FilterResults from '../containers/FilterResults';
 
 
