@@ -39,6 +39,7 @@
     "babel-preset-react": "^6.1.18",
     "babel-preset-stage-1": "^6.1.18",
     "bootstrap": "^3.3.7",
+    "compression": "^1.6.2",
     "express": "^4.15.2",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
