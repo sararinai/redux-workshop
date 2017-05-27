@@ -4,13 +4,18 @@
   "description": "Tech Library - Atrapalo",
   "lang": "en",
   "start_url": "/",
-  "display": "browser",
+  "display": "standalone",
   "theme_color": "#de0000",
   "background_color": "#de0000",
   "icons": [
     {
       "src": "https://www.atrapalo.com/assets/common/a@2x.png",
       "sizes": "58x78",
+      "type": "image/png"
+    },
+    {
+      "src": "https://www.atrapalo.com/assets/common/a@2x.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
