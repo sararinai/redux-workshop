@@ -1,0 +1,17 @@
+{
+  "name": "React Tech Library",
+  "short_name": "Library",
+  "description": "Tech Library - Atrapalo",
+  "lang": "en",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#de0000",
+  "background_color": "#de0000",
+  "icons": [
+    {
+      "src": "https://www.atrapalo.com/assets/common/a@2x.png",
+      "sizes": "58x78",
+      "type": "image/png"
+    }
+  ]
+}
