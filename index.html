@@ -16,7 +16,69 @@
     <title>React Tech Library</title>
 </head>
 <body>
-    <div id="container"></div>
-    <script src="public/dist/bundle.js"></script>
+<div id="container">
+    <div data-reactroot="" class="container-fluid">
+        <div class="header row">
+            <div>
+                <div class="col-md-4 col-sm-4 hidden-xs">
+                    <div><img height="50" src="https://www.atrapalo.com/assets/common/logo-acento@2x.png"
+                              alt="Atrapalo Tech library title"><img height="50"
+                                                                     src="https://www.atrapalo.com/assets/common/a@2x.png"
+                                                                     alt="Atrapalo Tech library logo"></div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-xs-12" style="margin: 0px auto;"><h1 class="right"
+                                                                                       style="text-align: right; vertical-align: middle; color: white;">
+                    DT - TECH LIBRARY</h1><span style="float: right; color: white;">sábado, 27 de mayo de 2017</span>
+                </div>
+            </div>
+        </div>
+        <div class="google-search row">
+            <div class="col-md-12">
+                <form class="row search-form">
+                    <div class="col-md-2 col-sm-2 col-xs-8"><select class="form-control"
+                                                                    aria-label="query type selector">
+                        <option value="title">Title</option>
+                        <option value="author">Author</option>
+                        <option value="publisher">Publisher</option>
+                        <option value="byquery">ByQuery</option>
+                        <option value="isbn">ISBN</option>
+                    </select></div>
+                    <div class="col-md-1 col-sm-1 col-xs-4"><select class="form-control"
+                                                                    aria-label="max results number">
+                        <option value="20">20</option>
+                        <option value="40">40</option>
+                    </select></div>
+                    <div class="col-md-7 col-sm-7 col-xs-12"><input type="text" class="form-control" value=""
+                                                                    aria-label="search term" placeholder="Clean Code">
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-12">
+                        <button class="btn form-control" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="book-list row">
+            <div class="col-md-2">
+                <div>
+                    <div class="panel-filter panel panel-default">
+                        <div class="panel-heading">
+                            <div class="btn-group" role="group">
+                                <button type="button" aria-label="grid view" class="btn btn-default "><span
+                                        class="glyphicon glyphicon-th-large"></span></button>
+                                <button type="button" aria-label="3 books view" class="btn btn-default active"><span
+                                        class="glyphicon glyphicon-th"></span></button>
+                                <button type="button" aria-label="list view" class="btn btn-default "><span
+                                        class="glyphicon glyphicon-th-list"></span></button>
+                            </div>
+                        </div>
+                        <div class="panel-body"><!-- react-text: 42 -->Total results <!-- /react-text --><span
+                                class="label label-primary">225</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="public/dist/bundle.js"></script>
 </body>
 </html>
