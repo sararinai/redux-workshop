@@ -22,9 +22,11 @@ class GoogleAPISearch extends Component {
   }
 
   handleInputChange(event) {
-    this.setState({
-      query: event.target.value
-    })
+      this.setState({
+        query: event.target.value
+      },
+          () => this.doSearchReal()
+      );
   }
 
   handleTypeSelectorChange(event) {
@@ -59,18 +61,24 @@ class GoogleAPISearch extends Component {
   }
 
   doSearch(event) {
-    event.preventDefault();
-    this.props.newSearch(
-      this.state.query,
-      this.state.type,
-      this.state.maxResults
-    );
+      event.preventDefault();
+      this.doSearchReal();
+  }
 
-    this.props.googleAPISearch(
-      this.state.query,
-      this.state.type,
-      this.state.maxResults
-    );
+  doSearchReal() {
+    if (this.state.query.length >= 3){
+      this.props.newSearch(
+          this.state.query,
+          this.state.type,
+          this.state.maxResults
+      );
+
+      this.props.googleAPISearch(
+          this.state.query,
+          this.state.type,
+          this.state.maxResults
+      );
+    }
   }
 
   render() {

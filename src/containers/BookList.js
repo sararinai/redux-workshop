@@ -18,8 +18,12 @@ class BookList extends Component {
   }
 
   render() {
-    let activeClass = this.props.activeView == '3books-view'
-      ? 'col-md-4 col-sm-6' : 'col-md-12 col-sm-12';
+    let activeClass = 'col-md-4 col-sm-6'
+      if(this.props.activeView == '2books-view'){
+        activeClass = 'col-md-6 col-sm-12';
+      }else if (this.props.activeView == 'list-view'){
+          activeClass = 'col-md-12 col-sm-12';
+      }
 
     let books = this.props.books.map((book, index) => {
       return (

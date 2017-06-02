@@ -5,6 +5,7 @@ export const FETCH_BOOKS = 'FETCH_BOOKS';
 export const GOOGLE_API_SEARCH = 'GOOGLE_API_SEARCH';
 export const CHANGE_VIEW = 'CHANGE_VIEW';
 export const NEW_SEARCH = 'NEW_SEARCH';
+export const DELETE_REGISTER = 'DELETE_REGISTER';
 
 export function fetchBooks() {
   let books = axios.get(`${API_URI}books`);
@@ -40,4 +41,11 @@ export function newSearch(query, type, maxResults, startIndex = 0) {
       startIndex
     }
   }
+}
+
+export function deleteSearch(searchId) {
+    return {
+        type: DELETE_REGISTER,
+        payload: searchId
+    }
 }

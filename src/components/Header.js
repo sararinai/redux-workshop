@@ -1,10 +1,8 @@
 import React from 'react';
 import AtrapaloLogo from './AtrapaloLogo';
+import DateHeader from './DateHeader';
 
 const Header = () => {
-  var options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-
-  //#de0000
   return (
     <div className="row header">
       <div className="clearfix">
@@ -14,7 +12,7 @@ const Header = () => {
               className="right">
             DT - TECH LIBRARY
           </h1>
-          <span style={{float:'right', color:'white'}}>{new Date().toLocaleDateString('es-ES', options)}</span>
+          <DateHeader />
         </div>
       </div>
     </div>
